@@ -1,0 +1,4 @@
+*.o
+main
+/sounds/*
+*.mp3
