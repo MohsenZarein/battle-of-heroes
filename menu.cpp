@@ -47,7 +47,7 @@ Menu::Menu()
     MenuBackground.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/5048584-banner-battle-lightning-warrior.jpg");
     MenuBackgroundSprite.setTexture(MenuBackground);
 
-    MenuFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/TarrgetLaserRegular-4OE9.otf");
+    MenuFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/TarrgetOutlineItalic-63LM.otf");
 
     option1.setFont(MenuFont);
     option1.setString("single player");

@@ -7,7 +7,7 @@ Game::Game()
     GameBackground.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/star-wars-ult-background-18.jpg");
     GameBackgroundSprite.setTexture(GameBackground);
 
-    GameFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/TarrgetLaserRegular-4OE9.otf");
+    GameFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/TarrgetOutlineItalic-63LM.otf");
 
     BeginingLoadPage.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/1920x1080-black-solid-color-background.jpg");
     BeginingLoadPageSprite.setTexture(BeginingLoadPage);
@@ -16,7 +16,7 @@ Game::Game()
     ExpToStTheGameTexSprite.setTexture(ExpectationToStartTheGameTextue);
 
     ArrangeTeamsOption.setFont(GameFont);
-    ArrangeTeamsOption.setString("ArrangeTeames");
+    ArrangeTeamsOption.setString("Arrange Teames");
     ArrangeTeamsOption.setCharacterSize(50);
     ArrangeTeamsOption.setColor(Color::White);
     ArrangeTeamsOption.setPosition(0,0);
