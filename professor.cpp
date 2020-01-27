@@ -1,8 +1,10 @@
 #include "professor.h"
 
-Professor::Professor()
+Professor::Professor(sf::RenderWindow* window) : professorcard(window)
 {
     Name  = "Professor";
+    this->window = window;
+    card = &professorcard;
 }
 
 Professor::~Professor()

@@ -88,7 +88,7 @@ private:
     //KratosCard* kratoscard ;
     //GiantCard* giantcard ;
     //AlphaManCard* alphamancard ;
-    ProfessorCard* professorcard  ;
+    //ProfessorCard* professorcard  ;
     //CommanderCard* commandercard ;
 
 

@@ -32,8 +32,8 @@ Menu::Menu()
     Player1_AlphaMan = new AlphaMan(window);
     Player2_AlphaMan = new AlphaMan(window);
 
-    Player1_Professor = new Professor();
-    Player2_Professor = new Professor();
+    Player1_Professor = new Professor(window);
+    Player2_Professor = new Professor(window);
 
     Player1_Commander = new Commander(window);
     Player2_Commander = new Commander(window);
@@ -90,7 +90,7 @@ void Menu::exec()
     //kratoscard = new KratosCard(window);
     //giantcard = new GiantCard(window);
     //alphamancard = new AlphaManCard(window);
-    professorcard  = new ProfessorCard(window);
+    //professorcard  = new ProfessorCard(window);
     //commandercard = new CommanderCard(window);
 
     while(window->isOpen()) {
@@ -254,7 +254,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = AlphaMan_Selected;
               }
-              if(professorcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
+              if(Player1_Professor->professorcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Professor_Selected;
               }
@@ -328,7 +328,7 @@ void Menu::exec()
                Player1_Kratos->kratoscard.draw();
                Player1_Giant->giantcard.draw();
                Player1_AlphaMan->alphamancard.draw();
-               professorcard->draw();
+               Player1_Professor->professorcard.draw();
                Player1_Commander->commandercard.draw();
                window->display();
 
@@ -391,7 +391,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = AlphaMan_Selected;
                }
-               if(professorcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
+               if(Player2_Professor->professorcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Professor_Selected;
                }
@@ -464,7 +464,7 @@ void Menu::exec()
                 Player2_Kratos->kratoscard.draw();
                 Player2_Giant->giantcard.draw();
                 Player2_AlphaMan->alphamancard.draw();
-                professorcard->draw();
+                Player2_Professor->professorcard.draw();
                 Player2_Commander->commandercard.draw();
                 window->display();
 
