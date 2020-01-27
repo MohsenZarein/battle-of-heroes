@@ -35,8 +35,8 @@ Menu::Menu()
     Player1_Professor = new Professor();
     Player2_Professor = new Professor();
 
-    Player1_Commander = new Commander();
-    Player2_Commander = new Commander();
+    Player1_Commander = new Commander(window);
+    Player2_Commander = new Commander(window);
 
     gridPlayer1 = new Grid(9,9,window);
     gridPlayer2 = new Grid(9,9,window);
@@ -91,7 +91,7 @@ void Menu::exec()
     giantcard = new GiantCard(window);
     //alphamancard = new AlphaManCard(window);
     professorcard  = new ProfessorCard(window);
-    commandercard = new CommanderCard(window);
+    //commandercard = new CommanderCard(window);
 
     while(window->isOpen()) {
 
@@ -258,7 +258,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Professor_Selected;
               }
-              if(commandercard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
+              if(Player1_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Commander_Selected;
               }
@@ -331,7 +331,7 @@ void Menu::exec()
                giantcard->draw();
                Player1_AlphaMan->alphamancard.draw();
                professorcard->draw();
-               commandercard->draw();
+               Player1_Commander->commandercard.draw();
                window->display();
 
              }
@@ -397,7 +397,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Professor_Selected;
                }
-               if(commandercard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
+               if(Player2_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Commander_Selected;
                }
@@ -467,7 +467,7 @@ void Menu::exec()
                 giantcard->draw();
                 Player2_AlphaMan->alphamancard.draw();
                 professorcard->draw();
-                commandercard->draw();
+                Player2_Commander->commandercard.draw();
                 window->display();
 
             }
@@ -527,17 +527,6 @@ Menu::~Menu()
 
     delete gridPlayer1;
     delete gridPlayer2;
-
-    //delete mrsghostcard;
-    //delete robicard;
-    delete leoncard;
-    delete drmarrycard;
-    delete snippercard;
-    delete kratoscard;
-    delete giantcard;
-    //delete alphamancard;
-    delete professorcard;
-    delete commandercard;
 
     delete Player1_MrsGhost;
     delete Player2_MrsGhost;

@@ -89,7 +89,7 @@ private:
     GiantCard* giantcard ;
     //AlphaManCard* alphamancard ;
     ProfessorCard* professorcard  ;
-    CommanderCard* commandercard ;
+    //CommanderCard* commandercard ;
 
     Grid* gridPlayer1 ;
     Grid* gridPlayer2;

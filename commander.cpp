@@ -1,8 +1,10 @@
 #include "commander.h"
 
-Commander::Commander()
+Commander::Commander(sf::RenderWindow* window) : commandercard(window)
 {
     Name = "Commander";
+    this->window = window;
+    card = &commandercard;
 }
 
 Commander::~Commander()
