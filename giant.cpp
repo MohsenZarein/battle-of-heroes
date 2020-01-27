@@ -2,7 +2,7 @@
 
 Giant::Giant()
 {
-
+    Name = "Giant";
 }
 
 Giant::~Giant()

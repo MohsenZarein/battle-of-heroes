@@ -487,7 +487,41 @@ void Menu::exec()
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
 
-
+                for(auto const &item : player1.getHero()) {
+                    if(item->Name == "MrsGhost") {
+                       mrsghostcard->draw();
+                    }
+                    else if(item->Name == "AlphaMan"){
+                        alphamancard->draw();
+                    }
+                    else if(item->Name == "Commander") {
+                        commandercard->draw();
+                    }
+                    else if(item->Name == "DrMarry"){
+                        drmarrycard->draw();
+                    }
+                    else if(item->Name == "Giant") {
+                        giantcard->draw();
+                    }
+                    else if(item->Name == "Kratos") {
+                        kratoscard->draw();
+                    }
+                    else if (item->Name == "Leon") {
+                        leoncard->draw();
+                    }
+                    else if (item->Name == "Professor") {
+                        professorcard->draw();
+                    }
+                    else if (item->Name == "Robi") {
+                        robicard->draw();
+                    }
+                    else if(item->Name == "Snipper") {
+                        snippercard->draw();
+                    }
+                }
+                if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+                    mrsghostcard->getCardTextureSprite().setColor(Color::Magenta);
+                }
 
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {
                     for(int j=0 ; j<BattleField_P2->getCol() ; j++) {
@@ -505,7 +539,7 @@ void Menu::exec()
                     }
                 }
 
-                mrsghostcard->draw();
+                //mrsghostcard->draw();
                 BattleField_P2->draw();
                 window->display();
             }

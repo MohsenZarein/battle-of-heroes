@@ -3,7 +3,7 @@
 
 DrMarry::DrMarry()
 {
-
+    Name = "DrMarry";
 }
 
 DrMarry::~DrMarry()

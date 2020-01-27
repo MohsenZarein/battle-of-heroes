@@ -2,7 +2,7 @@
 
 Kratos::Kratos()
 {
-
+    Name = "Kratos";
 }
 
 Kratos::~Kratos()

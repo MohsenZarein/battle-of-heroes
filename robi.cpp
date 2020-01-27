@@ -3,7 +3,7 @@
 
 Robi::Robi()
 {
-
+    Name = "Robi";
 }
 
 Robi::~Robi()

@@ -2,7 +2,7 @@
 
 Professor::Professor()
 {
-
+    Name  = "professor";
 }
 
 Professor::~Professor()

@@ -2,7 +2,7 @@
 
 MrsGhost::MrsGhost()
 {
-
+    Name = "MrsGhost";
 }
 
 MrsGhost::~MrsGhost()

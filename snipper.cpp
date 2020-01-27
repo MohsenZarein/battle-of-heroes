@@ -2,7 +2,7 @@
 
 Snipper::Snipper()
 {
-
+    Name = "Snipper";
 }
 
 Snipper::~Snipper()

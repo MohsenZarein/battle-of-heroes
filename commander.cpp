@@ -2,7 +2,7 @@
 
 Commander::Commander()
 {
-
+    Name = "Commander";
 }
 
 Commander::~Commander()

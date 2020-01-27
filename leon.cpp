@@ -2,7 +2,7 @@
 
 Leon::Leon()
 {
-
+    Name = "Leon";
 }
 
 Leon::~Leon()

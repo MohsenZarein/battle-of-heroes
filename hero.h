@@ -9,6 +9,7 @@ public:
     virtual ~Hero();
     virtual void Attack() = 0;
     virtual bool isVisible() const = 0;
+    std::string Name;
 protected:
     float health;
     unsigned short int power;

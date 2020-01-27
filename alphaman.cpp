@@ -2,7 +2,7 @@
 
 AlphaMan::AlphaMan()
 {
-
+    Name = "AlphaMan";
 }
 
 AlphaMan::~AlphaMan()
