@@ -1,8 +1,10 @@
 #include "leon.h"
 
-Leon::Leon()
+Leon::Leon(sf::RenderWindow* window) : leoncard(window)
 {
     Name = "Leon";
+    this->window = window;
+    card = &leoncard;
 }
 
 Leon::~Leon()

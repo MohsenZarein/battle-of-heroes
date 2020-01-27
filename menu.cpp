@@ -14,8 +14,8 @@ Menu::Menu()
     Player1_Robi = new Robi(window);
     Player2_Robi = new Robi(window);
 
-    Player1_Leon = new Leon();
-    Player2_Leon = new Leon();
+    Player1_Leon = new Leon(window);
+    Player2_Leon = new Leon(window);
 
     Player1_DrMarry = new DrMarry(window);
     Player2_DrMarry = new DrMarry(window);
@@ -84,7 +84,7 @@ void Menu::exec()
 
     //mrsghostcard = new MrsGhostCard(window);
     //robicard = new RobiCard(window);
-    leoncard = new LeonCard(window);
+    //leoncard = new LeonCard(window);
     //drmarrycard = new DrMarryCard(window);
     snippercard = new SnipperCard(window);
     //kratoscard = new KratosCard(window);
@@ -230,7 +230,7 @@ void Menu::exec()
                   HeroName = Robi_Selected;
               }
 
-              if(leoncard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_Leon->leoncard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Leon_Selected;
               }
@@ -322,7 +322,7 @@ void Menu::exec()
                gridPlayer1->draw();
                Player1_Robi->robicard.draw();
                Player1_MrsGhost->mrsghostcard.draw();
-               leoncard->draw();
+               Player1_Leon->leoncard.draw();
                Player1_DrMarry->drmarrycard.draw();
                snippercard->draw();
                Player1_Kratos->kratoscard.draw();
@@ -367,7 +367,7 @@ void Menu::exec()
                    HeroName = Robi_Selected;
                }
 
-               if(leoncard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player1_Leon->leoncard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Leon_Selected;
                }
@@ -458,7 +458,7 @@ void Menu::exec()
                 gridPlayer2->draw();
                 Player2_Robi->robicard.draw();
                 Player2_MrsGhost->mrsghostcard.draw();
-                leoncard->draw();
+                Player2_Leon->leoncard.draw();
                 Player2_DrMarry->drmarrycard.draw();
                 snippercard->draw();
                 Player2_Kratos->kratoscard.draw();

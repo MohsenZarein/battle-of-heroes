@@ -82,7 +82,7 @@ private:
 
     //MrsGhostCard* mrsghostcard ;
     //RobiCard* robicard ;
-    LeonCard* leoncard ;
+    //LeonCard* leoncard ;
     //DrMarryCard* drmarrycard ;
     SnipperCard* snippercard ;
     //KratosCard* kratoscard ;
@@ -90,6 +90,7 @@ private:
     //AlphaManCard* alphamancard ;
     ProfessorCard* professorcard  ;
     //CommanderCard* commandercard ;
+
 
     Grid* gridPlayer1 ;
     Grid* gridPlayer2;
