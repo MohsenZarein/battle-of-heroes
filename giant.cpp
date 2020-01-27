@@ -1,8 +1,10 @@
 #include "giant.h"
 
-Giant::Giant()
+Giant::Giant(sf::RenderWindow* window) : giantcard(window)
 {
     Name = "Giant";
+    this->window = window;
+    card = &giantcard;
 }
 
 Giant::~Giant()

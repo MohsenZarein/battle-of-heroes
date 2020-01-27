@@ -17,8 +17,8 @@ Menu::Menu()
     Player1_Leon = new Leon();
     Player2_Leon = new Leon();
 
-    Player1_DrMarry = new DrMarry();
-    Player2_DrMarry = new DrMarry();
+    Player1_DrMarry = new DrMarry(window);
+    Player2_DrMarry = new DrMarry(window);
 
     Player1_Snipper = new Snipper();
     Player2_Snipper = new Snipper();
@@ -26,8 +26,8 @@ Menu::Menu()
     Player1_Kratos = new Kratos();
     Player2_Kratos = new Kratos();
 
-    Player1_Giant = new Giant();
-    Player2_Giant = new Giant();
+    Player1_Giant = new Giant(window);
+    Player2_Giant = new Giant(window);
 
     Player1_AlphaMan = new AlphaMan(window);
     Player2_AlphaMan = new AlphaMan(window);
@@ -85,10 +85,10 @@ void Menu::exec()
     //mrsghostcard = new MrsGhostCard(window);
     //robicard = new RobiCard(window);
     leoncard = new LeonCard(window);
-    drmarrycard = new DrMarryCard(window);
+    //drmarrycard = new DrMarryCard(window);
     snippercard = new SnipperCard(window);
     kratoscard = new KratosCard(window);
-    giantcard = new GiantCard(window);
+    //giantcard = new GiantCard(window);
     //alphamancard = new AlphaManCard(window);
     professorcard  = new ProfessorCard(window);
     //commandercard = new CommanderCard(window);
@@ -234,7 +234,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Leon_Selected;
               }
-              if(drmarrycard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_DrMarry->drmarrycard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = DrMarry_Selected;
               }
@@ -246,7 +246,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Kratos_Selected;
               }
-              if(giantcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_Giant->giantcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Giant_Selected;
               }
@@ -268,10 +268,8 @@ void Menu::exec()
                               event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                           switch (HeroName) {
                           case MrsGhost_Selected:
-                              //std::cout<<player1.HeroesOfPlayer.size()<<std::endl;
                               Player1_MrsGhost->set_position_on_grid(Vector2i(i,j));
                               player1.SetHero(Player1_MrsGhost);
-                              //std::cout<<player1.HeroesOfPlayer.size();
                               break;
                           case Robi_Selected:
                               Player1_Robi->set_position_on_grid(Vector2i(i,j));
@@ -313,7 +311,7 @@ void Menu::exec()
                               break;
                           }
                           //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
-                          //std::cout<<player1.getHero().size()<<std::endl;
+                          std::cout<<player1.getHero().size()<<std::endl;
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                           gridPlayer1->draw();
                           break;
@@ -325,10 +323,10 @@ void Menu::exec()
                Player1_Robi->robicard.draw();
                Player1_MrsGhost->mrsghostcard.draw();
                leoncard->draw();
-               drmarrycard->draw();
+               Player1_DrMarry->drmarrycard.draw();
                snippercard->draw();
                kratoscard->draw();
-               giantcard->draw();
+               Player1_Giant->giantcard.draw();
                Player1_AlphaMan->alphamancard.draw();
                professorcard->draw();
                Player1_Commander->commandercard.draw();
@@ -373,7 +371,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Leon_Selected;
                }
-               if(drmarrycard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_DrMarry->drmarrycard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = DrMarry_Selected;
                }
@@ -385,7 +383,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Kratos_Selected;
                }
-               if(giantcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_Giant->giantcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Giant_Selected;
                }
@@ -461,10 +459,10 @@ void Menu::exec()
                 Player2_Robi->robicard.draw();
                 Player2_MrsGhost->mrsghostcard.draw();
                 leoncard->draw();
-                drmarrycard->draw();
+                Player2_DrMarry->drmarrycard.draw();
                 snippercard->draw();
                 kratoscard->draw();
-                giantcard->draw();
+                Player2_Giant->giantcard.draw();
                 Player2_AlphaMan->alphamancard.draw();
                 professorcard->draw();
                 Player2_Commander->commandercard.draw();

@@ -1,9 +1,11 @@
 #include "drmarry.h"
 
 
-DrMarry::DrMarry()
+DrMarry::DrMarry(sf::RenderWindow* window) : drmarrycard(window)
 {
     Name = "DrMarry";
+    this->window = window;
+    card = &drmarrycard;
 }
 
 DrMarry::~DrMarry()
