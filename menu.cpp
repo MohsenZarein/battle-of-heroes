@@ -20,8 +20,8 @@ Menu::Menu()
     Player1_DrMarry = new DrMarry(window);
     Player2_DrMarry = new DrMarry(window);
 
-    Player1_Snipper = new Snipper();
-    Player2_Snipper = new Snipper();
+    Player1_Snipper = new Snipper(window);
+    Player2_Snipper = new Snipper(window);
 
     Player1_Kratos = new Kratos(window);
     Player2_Kratos = new Kratos(window);
@@ -86,7 +86,7 @@ void Menu::exec()
     //robicard = new RobiCard(window);
     //leoncard = new LeonCard(window);
     //drmarrycard = new DrMarryCard(window);
-    snippercard = new SnipperCard(window);
+    //snippercard = new SnipperCard(window);
     //kratoscard = new KratosCard(window);
     //giantcard = new GiantCard(window);
     //alphamancard = new AlphaManCard(window);
@@ -238,7 +238,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = DrMarry_Selected;
               }
-              if(snippercard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_Snipper->snippercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Snipper_Selected;
               }
@@ -324,7 +324,7 @@ void Menu::exec()
                Player1_MrsGhost->mrsghostcard.draw();
                Player1_Leon->leoncard.draw();
                Player1_DrMarry->drmarrycard.draw();
-               snippercard->draw();
+               Player1_Snipper->snippercard.draw();
                Player1_Kratos->kratoscard.draw();
                Player1_Giant->giantcard.draw();
                Player1_AlphaMan->alphamancard.draw();
@@ -375,7 +375,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = DrMarry_Selected;
                }
-               if(snippercard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_Snipper->snippercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Snipper_Selected;
                }
@@ -460,7 +460,7 @@ void Menu::exec()
                 Player2_MrsGhost->mrsghostcard.draw();
                 Player2_Leon->leoncard.draw();
                 Player2_DrMarry->drmarrycard.draw();
-                snippercard->draw();
+                Player2_Snipper->snippercard.draw();
                 Player2_Kratos->kratoscard.draw();
                 Player2_Giant->giantcard.draw();
                 Player2_AlphaMan->alphamancard.draw();

@@ -1,8 +1,10 @@
 #include "snipper.h"
 
-Snipper::Snipper()
+Snipper::Snipper(sf::RenderWindow* window) : snippercard(window)
 {
     Name = "Snipper";
+    this->window = window;
+    card = &snippercard;
 }
 
 Snipper::~Snipper()
