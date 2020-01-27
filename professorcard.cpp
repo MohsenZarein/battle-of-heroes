@@ -23,7 +23,7 @@ void ProfessorCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition)
     window->draw(CardTextureSprite);
 }
 
-sf::Sprite &ProfessorCard::getCardTextureSprite()
+sf::Sprite& ProfessorCard::getCardTextureSprite()
 {
     return CardTextureSprite;
 }

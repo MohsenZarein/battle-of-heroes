@@ -1,9 +1,11 @@
 #include "robi.h"
 #include <iostream>
 
-Robi::Robi()
+Robi::Robi(sf::RenderWindow* window) : robicard(window)
 {
     Name = "Robi";
+    this->window = window;
+    card = &robicard;
 }
 
 Robi::~Robi()

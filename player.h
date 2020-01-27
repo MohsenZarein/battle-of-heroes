@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "general.h"
 #include "hero.h"
 #include "grid.h"
 
@@ -12,6 +13,7 @@ public:
     Player();
     void SetHero(Hero*);
     std::vector<Hero*>& getHero();
+    void WhichHeroIsSelected(sf::Vector2f,sf::Event);
 private:
      std::vector<Hero*> HeroesOfPlayer;
 };

@@ -8,11 +8,11 @@ Menu::Menu()
 {
     window = new RenderWindow(sf::VideoMode(1920,1080),"Battle of Basu",Style::Fullscreen);
 
-    Player1_MrsGhost = new MrsGhost();
-    Player2_MrsGhost = new MrsGhost();
+    Player1_MrsGhost = new MrsGhost(window);
+    Player2_MrsGhost = new MrsGhost(window);
 
-    Player1_Robi = new Robi();
-    Player2_Robi = new Robi();
+    Player1_Robi = new Robi(window);
+    Player2_Robi = new Robi(window);
 
     Player1_Leon = new Leon();
     Player2_Leon = new Leon();
@@ -31,6 +31,9 @@ Menu::Menu()
 
     Player1_AlphaMan = new AlphaMan();
     Player2_AlphaMan = new AlphaMan();
+
+    Player1_Professor = new Professor();
+    Player2_Professor = new Professor();
 
     Player1_Commander = new Commander();
     Player2_Commander = new Commander();
@@ -76,11 +79,11 @@ Menu::Menu()
 void Menu::exec()
 {
     Event event;
-    state currentState = Begin;
+    state currentState = MENU;
     Heroes HeroName = None;
 
-    mrsghostcard = new MrsGhostCard(window);
-    robicard = new RobiCard(window);
+    //mrsghostcard = new MrsGhostCard(window);
+    //robicard = new RobiCard(window);
     leoncard = new LeonCard(window);
     drmarrycard = new DrMarryCard(window);
     snippercard = new SnipperCard(window);
@@ -217,12 +220,12 @@ void Menu::exec()
                   break;
               }
 
-              if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_MrsGhost->mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                      HeroName = MrsGhost_Selected;
                }
 
-              if(robicard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_Robi->robicard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed((Mouse::Left))) {
                   HeroName = Robi_Selected;
               }
@@ -310,6 +313,7 @@ void Menu::exec()
                               break;
                           }
                           //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
+                          //std::cout<<player1.getHero().size()<<std::endl;
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                           gridPlayer1->draw();
                           break;
@@ -318,8 +322,8 @@ void Menu::exec()
               }
 
                gridPlayer1->draw();
-               robicard->draw();
-               mrsghostcard->draw();
+               Player1_Robi->robicard.draw();
+               Player1_MrsGhost->mrsghostcard.draw();
                leoncard->draw();
                drmarrycard->draw();
                snippercard->draw();
@@ -355,12 +359,12 @@ void Menu::exec()
                 }*/
 
 
-               if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_MrsGhost-> mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                         event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                       HeroName = MrsGhost_Selected;
                 }
 
-               if(robicard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_Robi->robicard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed((Mouse::Left))) {
                    HeroName = Robi_Selected;
                }
@@ -454,8 +458,8 @@ void Menu::exec()
                }
 
                 gridPlayer2->draw();
-                robicard->draw();
-                mrsghostcard->draw();
+                Player2_Robi->robicard.draw();
+                Player2_MrsGhost->mrsghostcard.draw();
                 leoncard->draw();
                 drmarrycard->draw();
                 snippercard->draw();
@@ -489,10 +493,14 @@ void Menu::exec()
 
                 for(auto const &item : player1.getHero()) {
                     if(item->Name == "MrsGhost") {
-                       mrsghostcard->draw();
+                       //Player1_MrsGhost-> mrsghostcard->draw();
+
+                       item->card->draw();
+                      // mrsGhost->draw();
                     }
                     else if(item->Name == "AlphaMan"){
                         alphamancard->draw();
+
                     }
                     else if(item->Name == "Commander") {
                         commandercard->draw();
@@ -513,15 +521,15 @@ void Menu::exec()
                         professorcard->draw();
                     }
                     else if (item->Name == "Robi") {
-                        robicard->draw();
+                        item->card->draw();
                     }
                     else if(item->Name == "Snipper") {
                         snippercard->draw();
                     }
                 }
-                if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+               /* if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
                     mrsghostcard->getCardTextureSprite().setColor(Color::Magenta);
-                }
+                }*/
 
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {
                     for(int j=0 ; j<BattleField_P2->getCol() ; j++) {
@@ -555,8 +563,8 @@ Menu::~Menu()
     delete gridPlayer1;
     delete gridPlayer2;
 
-    delete mrsghostcard;
-    delete robicard;
+    //delete mrsghostcard;
+    //delete robicard;
     delete leoncard;
     delete drmarrycard;
     delete snippercard;

@@ -2,7 +2,8 @@
 
 using namespace sf;
 
-KratosCard::KratosCard(sf::RenderWindow * window)
+
+KratosCard::KratosCard(RenderWindow* window)
 {
     this->window = window;
     CardTexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/BigHeroesImage/Kratos.png");
@@ -23,7 +24,7 @@ void KratosCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition)
     window->draw(CardTextureSprite);
 }
 
-sf::Sprite &KratosCard::getCardTextureSprite()
+sf::Sprite& KratosCard::getCardTextureSprite()
 {
     return CardTextureSprite;
 }

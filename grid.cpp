@@ -17,7 +17,7 @@ Grid::Grid( unsigned int row, unsigned int col,RenderWindow *window)
     KratosTexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/kratos icon.png");
     GiantTexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/giant.png");
     AlphaManTexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/alpha_man icon.png");
-    ProfessorTexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/professor icon.png");
+    ProfessorTexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/professoricon.png");
     Commandertexture.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/commander icon.png");
 
     gridArr = new RectangleShape*[row];
@@ -70,8 +70,8 @@ Vector2f Grid::getCellSize()
 
 void Grid::setHeroIcon(Vector2f pos, Heroes HeroName)
 {
-    for (int i = 0; i < row; i++)
-        for (int j = 0; j < col; j++)
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
             if (gridArr[i][j].getGlobalBounds().contains(pos))
             {
                 switch (HeroName) {
@@ -124,6 +124,8 @@ void Grid::setHeroIcon(Vector2f pos, Heroes HeroName)
                     break;
                 }
             }
+        }
+    }
 }
 
 

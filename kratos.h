@@ -1,7 +1,7 @@
 #ifndef KRATOS_H
 #define KRATOS_H
 
-#include <hero.h>
+#include "hero.h"
 
 class Kratos : public Hero
 {

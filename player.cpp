@@ -14,3 +14,12 @@ std::vector<Hero *> &Player::getHero()
 {
     return HeroesOfPlayer;
 }
+
+/*void Player::WhichHeroIsSelected(sf::Vector2f pos,sf::Event event)
+{
+    for(auto const &item : HeroesOfPlayer) {
+        if(item->) {
+            item->car
+        }
+    }
+}*/

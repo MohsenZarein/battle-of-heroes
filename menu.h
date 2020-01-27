@@ -80,8 +80,8 @@ private:
     Commander* Player1_Commander;
     Commander* Player2_Commander;
 
-    MrsGhostCard* mrsghostcard ;
-    RobiCard* robicard ;
+    //MrsGhostCard* mrsghostcard ;
+    //RobiCard* robicard ;
     LeonCard* leoncard ;
     DrMarryCard* drmarrycard ;
     SnipperCard* snippercard ;

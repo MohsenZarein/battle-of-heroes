@@ -1,13 +1,19 @@
 #include "mrsghost.h"
+using namespace sf;
 
-MrsGhost::MrsGhost()
+
+MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
 {
+    this->window = window;
     Name = "MrsGhost";
+   // mrsghostcard = new MrsGhostCard(window);
+    card = &mrsghostcard;
+    //mrsghostcard = dynamic_cast<MrsGhostCard*>(card);
 }
 
 MrsGhost::~MrsGhost()
 {
-
+    //delete mrsghostcard;
 }
 
 void MrsGhost::Attack()
