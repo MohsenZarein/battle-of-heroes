@@ -85,7 +85,7 @@ private:
     LeonCard* leoncard ;
     //DrMarryCard* drmarrycard ;
     SnipperCard* snippercard ;
-    KratosCard* kratoscard ;
+    //KratosCard* kratoscard ;
     //GiantCard* giantcard ;
     //AlphaManCard* alphamancard ;
     ProfessorCard* professorcard  ;

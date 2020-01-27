@@ -23,8 +23,8 @@ Menu::Menu()
     Player1_Snipper = new Snipper();
     Player2_Snipper = new Snipper();
 
-    Player1_Kratos = new Kratos();
-    Player2_Kratos = new Kratos();
+    Player1_Kratos = new Kratos(window);
+    Player2_Kratos = new Kratos(window);
 
     Player1_Giant = new Giant(window);
     Player2_Giant = new Giant(window);
@@ -87,7 +87,7 @@ void Menu::exec()
     leoncard = new LeonCard(window);
     //drmarrycard = new DrMarryCard(window);
     snippercard = new SnipperCard(window);
-    kratoscard = new KratosCard(window);
+    //kratoscard = new KratosCard(window);
     //giantcard = new GiantCard(window);
     //alphamancard = new AlphaManCard(window);
     professorcard  = new ProfessorCard(window);
@@ -242,7 +242,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Snipper_Selected;
               }
-              if(kratoscard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_Kratos->kratoscard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Kratos_Selected;
               }
@@ -325,7 +325,7 @@ void Menu::exec()
                leoncard->draw();
                Player1_DrMarry->drmarrycard.draw();
                snippercard->draw();
-               kratoscard->draw();
+               Player1_Kratos->kratoscard.draw();
                Player1_Giant->giantcard.draw();
                Player1_AlphaMan->alphamancard.draw();
                professorcard->draw();
@@ -379,7 +379,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Snipper_Selected;
                }
-               if(kratoscard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_Kratos->kratoscard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Kratos_Selected;
                }
@@ -461,7 +461,7 @@ void Menu::exec()
                 leoncard->draw();
                 Player2_DrMarry->drmarrycard.draw();
                 snippercard->draw();
-                kratoscard->draw();
+                Player2_Kratos->kratoscard.draw();
                 Player2_Giant->giantcard.draw();
                 Player2_AlphaMan->alphamancard.draw();
                 professorcard->draw();

@@ -1,8 +1,10 @@
 #include "kratos.h"
 
-Kratos::Kratos()
+Kratos::Kratos(sf::RenderWindow* window) : kratoscard(window)
 {
     Name = "Kratos";
+    this->window = window;
+    card = &kratoscard;
 }
 
 Kratos::~Kratos()
