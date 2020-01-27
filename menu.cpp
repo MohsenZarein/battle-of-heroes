@@ -487,18 +487,17 @@ void Menu::exec()
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
 
-                if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                        event.key.code == Mouse::isButtonPressed(Mouse::Left)){
-                    HeroName = MrsGhost_Selected;
-                }
+
+
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {
                     for(int j=0 ; j<BattleField_P2->getCol() ; j++) {
                         if(BattleField_P2->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                 event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                             switch (HeroName) {
                             case MrsGhost_Selected:
-                                BattleField_P2->gridArr[i][j].setFillColor(Color::Yellow);
+                               // player1.ReadyToAttack(Vector2i(i,j),player2);
                                 break;
+
                             default:
                                 break;
                             }

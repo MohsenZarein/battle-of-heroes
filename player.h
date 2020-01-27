@@ -11,9 +11,9 @@ class Player
 public:
     Player();
     void SetHero(Hero*);
+    std::vector<Hero*>& getHero();
 private:
      std::vector<Hero*> HeroesOfPlayer;
-    //Grid gridOfPlayer;
 };
 
 #endif // PLAYER_H
