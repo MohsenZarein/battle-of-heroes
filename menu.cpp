@@ -29,8 +29,8 @@ Menu::Menu()
     Player1_Giant = new Giant();
     Player2_Giant = new Giant();
 
-    Player1_AlphaMan = new AlphaMan();
-    Player2_AlphaMan = new AlphaMan();
+    Player1_AlphaMan = new AlphaMan(window);
+    Player2_AlphaMan = new AlphaMan(window);
 
     Player1_Professor = new Professor();
     Player2_Professor = new Professor();
@@ -89,7 +89,7 @@ void Menu::exec()
     snippercard = new SnipperCard(window);
     kratoscard = new KratosCard(window);
     giantcard = new GiantCard(window);
-    alphamancard = new AlphaManCard(window);
+    //alphamancard = new AlphaManCard(window);
     professorcard  = new ProfessorCard(window);
     commandercard = new CommanderCard(window);
 
@@ -250,7 +250,7 @@ void Menu::exec()
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Giant_Selected;
               }
-              if(alphamancard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+              if(Player1_AlphaMan->alphamancard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = AlphaMan_Selected;
               }
@@ -329,7 +329,7 @@ void Menu::exec()
                snippercard->draw();
                kratoscard->draw();
                giantcard->draw();
-               alphamancard->draw();
+               Player1_AlphaMan->alphamancard.draw();
                professorcard->draw();
                commandercard->draw();
                window->display();
@@ -389,7 +389,7 @@ void Menu::exec()
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Giant_Selected;
                }
-               if(alphamancard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               if(Player2_AlphaMan->alphamancard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = AlphaMan_Selected;
                }
@@ -465,7 +465,7 @@ void Menu::exec()
                 snippercard->draw();
                 kratoscard->draw();
                 giantcard->draw();
-                alphamancard->draw();
+                Player2_AlphaMan->alphamancard.draw();
                 professorcard->draw();
                 commandercard->draw();
                 window->display();
@@ -492,44 +492,9 @@ void Menu::exec()
                 window->draw(game.getGameBackgroundSprite());
 
                 for(auto const &item : player1.getHero()) {
-                    if(item->Name == "MrsGhost") {
-                       //Player1_MrsGhost-> mrsghostcard->draw();
 
                        item->card->draw();
-                      // mrsGhost->draw();
-                    }
-                    else if(item->Name == "AlphaMan"){
-                        alphamancard->draw();
-
-                    }
-                    else if(item->Name == "Commander") {
-                        commandercard->draw();
-                    }
-                    else if(item->Name == "DrMarry"){
-                        drmarrycard->draw();
-                    }
-                    else if(item->Name == "Giant") {
-                        giantcard->draw();
-                    }
-                    else if(item->Name == "Kratos") {
-                        kratoscard->draw();
-                    }
-                    else if (item->Name == "Leon") {
-                        leoncard->draw();
-                    }
-                    else if (item->Name == "Professor") {
-                        professorcard->draw();
-                    }
-                    else if (item->Name == "Robi") {
-                        item->card->draw();
-                    }
-                    else if(item->Name == "Snipper") {
-                        snippercard->draw();
-                    }
                 }
-               /* if(mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
-                    mrsghostcard->getCardTextureSprite().setColor(Color::Magenta);
-                }*/
 
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {
                     for(int j=0 ; j<BattleField_P2->getCol() ; j++) {
@@ -570,7 +535,7 @@ Menu::~Menu()
     delete snippercard;
     delete kratoscard;
     delete giantcard;
-    delete alphamancard;
+    //delete alphamancard;
     delete professorcard;
     delete commandercard;
 

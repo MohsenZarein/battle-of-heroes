@@ -1,8 +1,10 @@
 #include "alphaman.h"
 
-AlphaMan::AlphaMan()
+AlphaMan::AlphaMan(sf::RenderWindow* window) : alphamancard(window)
 {
     Name = "AlphaMan";
+    this->window = window;
+    card = &alphamancard;
 }
 
 AlphaMan::~AlphaMan()
