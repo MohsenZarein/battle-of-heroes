@@ -11,9 +11,9 @@ public:
     virtual void draw() = 0;
     virtual void draw(sf::Vector2f,sf::Vector2f) = 0;
     virtual sf::Sprite& getCardTextureSprite() = 0;
+    sf::Texture CardTexture;
 protected:
     sf::RenderWindow* window;
-    sf::Texture CardTexture;
     sf::Sprite CardTextureSprite;
 };
 

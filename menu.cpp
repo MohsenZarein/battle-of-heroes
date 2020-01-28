@@ -363,6 +363,7 @@ void Menu::exec()
                           }
                           //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
                           //std::cout<<player1->getHero().size()<<std::endl;
+                          //std::cout<<player1->getHero().at(0)->get_position_on_grid().x<<std::endl;
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                           HeroName = None;
                           gridPlayer1->draw();
@@ -505,7 +506,8 @@ void Menu::exec()
                                break;
                            }
                            //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
-                           std::cout<<player2->getHero().size()<<std::endl;
+                           //std::cout<<player2->getHero().size()<<std::endl;
+                           //std::cout<<player2->getHero().back()->get_position_on_grid().x<<std::endl;
                            gridPlayer2->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                            HeroName = None;
                            gridPlayer2->draw();
@@ -553,8 +555,8 @@ void Menu::exec()
                        item->card->draw();
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                           player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
 
-                          // Player1_MrsGhost->
                        }
                 }
 
@@ -564,7 +566,11 @@ void Menu::exec()
                                 event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                             switch (HeroName) {
                             case MrsGhost_Selected:
-                               // player1.ReadyToAttack(Vector2i(i,j),player2);
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "MrsGhost") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,player2->getHero());
+                                    }
+                                }
                                 break;
 
                             default:
@@ -574,7 +580,6 @@ void Menu::exec()
                     }
                 }
 
-                //mrsghostcard->draw();
                 BattleField_P2->draw();
                 window->display();
             }
@@ -592,6 +597,8 @@ Menu::~Menu()
 
     delete gridPlayer1;
     delete gridPlayer2;
+    delete BattleField_P1;
+    delete BattleField_P2;
 }
 
 

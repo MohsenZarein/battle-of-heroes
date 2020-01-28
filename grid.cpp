@@ -28,7 +28,7 @@ Grid::Grid( unsigned int row, unsigned int col,RenderWindow *window)
         for(int j=0;j<col;j++){
                 gridArr[i][j].setSize(cellSize);
                 gridArr[i][j].setOutlineColor(Color::Black);
-                gridArr[i][j].setFillColor(Color::Transparent);
+                //gridArr[i][j].setFillColor(Color::Transparent);
                 gridArr[i][j].setFillColor(Color(10,10,10, 200));
                 gridArr[i][j].setOutlineThickness(2.0f);
                 gridArr[i][j].setPosition(i*cellSize.x + 5.0f, j*cellSize.y + 5.0f);
