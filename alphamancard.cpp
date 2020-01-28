@@ -9,6 +9,8 @@ AlphaManCard::AlphaManCard(sf::RenderWindow* window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+AlphaManCard::~AlphaManCard() {}
+
 void AlphaManCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));

@@ -9,6 +9,8 @@ GiantCard::GiantCard(sf::RenderWindow * window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+GiantCard::~GiantCard() {}
+
 void GiantCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));

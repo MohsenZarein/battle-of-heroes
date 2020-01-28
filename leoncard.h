@@ -7,12 +7,10 @@ class LeonCard : public Card
 {
 public:
     LeonCard(sf::RenderWindow*);
+    virtual ~LeonCard();
     virtual void draw() override;
     virtual void draw(sf::Vector2f,sf::Vector2f) override;
-    sf::Sprite& getCardTextureSprite();
-private:
-    sf::Texture CardTexture;
-    sf::Sprite CardTextureSprite;
+    virtual sf::Sprite& getCardTextureSprite() override;
 };
 
 #endif // LEONCARD_H

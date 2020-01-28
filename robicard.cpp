@@ -10,6 +10,8 @@ RobiCard::RobiCard(RenderWindow* window)
 
 }
 
+RobiCard::~RobiCard() {}
+
 void RobiCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.25,0.25));

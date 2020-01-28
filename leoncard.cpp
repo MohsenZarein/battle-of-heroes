@@ -9,6 +9,8 @@ LeonCard::LeonCard(sf::RenderWindow *window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+LeonCard::~LeonCard() {}
+
 
 void LeonCard::draw()
 {

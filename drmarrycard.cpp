@@ -9,6 +9,8 @@ DrMarryCard::DrMarryCard(sf::RenderWindow* window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+DrMarryCard::~DrMarryCard() {}
+
 void DrMarryCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));

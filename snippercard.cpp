@@ -8,6 +8,8 @@ SnipperCard::SnipperCard(sf::RenderWindow * window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+SnipperCard::~SnipperCard() {}
+
 void SnipperCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));

@@ -10,6 +10,8 @@ KratosCard::KratosCard(RenderWindow* window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+KratosCard::~KratosCard() {}
+
 void KratosCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));

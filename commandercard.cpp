@@ -9,6 +9,8 @@ CommanderCard::CommanderCard(sf::RenderWindow *window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+CommanderCard::~CommanderCard() {}
+
 void CommanderCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));

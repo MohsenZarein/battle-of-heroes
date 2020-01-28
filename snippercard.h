@@ -7,12 +7,10 @@ class SnipperCard : public Card
 {
 public:
     SnipperCard(sf::RenderWindow*);
+    virtual ~SnipperCard();
     virtual void draw() override;
     virtual void draw(sf::Vector2f,sf::Vector2f) override;
-    sf::Sprite& getCardTextureSprite();
-private:
-    sf::Texture CardTexture;
-    sf::Sprite CardTextureSprite;
+    virtual sf::Sprite& getCardTextureSprite() override;
 };
 
 #endif // SNIPPERCARD_H

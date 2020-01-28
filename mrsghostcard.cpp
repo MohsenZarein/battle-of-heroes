@@ -10,6 +10,8 @@ MrsGhostCard::MrsGhostCard(RenderWindow* window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+MrsGhostCard::~MrsGhostCard() {}
+
 
 void MrsGhostCard::draw()
 {

@@ -7,12 +7,10 @@ class AlphaManCard : public Card
 {
 public:
     AlphaManCard(sf::RenderWindow*);
+    virtual ~AlphaManCard();
     virtual void draw() override;
     virtual void draw(sf::Vector2f,sf::Vector2f) override;
-    sf::Sprite& getCardTextureSprite();
-private:
-    sf::Texture CardTexture;
-    sf::Sprite CardTextureSprite;
+    virtual sf::Sprite& getCardTextureSprite() override;
 };
 
 #endif // ALPHAMANCARD_H

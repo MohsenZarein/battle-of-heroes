@@ -7,12 +7,10 @@ class MrsGhostCard : public Card
 {
 public:
     MrsGhostCard(sf::RenderWindow*);
+    virtual ~MrsGhostCard();
     virtual void draw() override;
     virtual void draw(sf::Vector2f,sf::Vector2f) override;
-    sf::Sprite& getCardTextureSprite();
-private:
-    sf::Texture CardTexture;
-    sf::Sprite CardTextureSprite;
+    virtual sf::Sprite& getCardTextureSprite() override;
 };
 
 #endif // MRSGHOSTCARD_H

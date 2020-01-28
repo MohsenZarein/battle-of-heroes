@@ -492,6 +492,9 @@ void Menu::exec()
                 for(auto const &item : player1.getHero()) {
 
                        item->card->draw();
+                       if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+                           item->card->getCardTextureSprite().setColor(Color::Yellow);
+                       }
                 }
 
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {

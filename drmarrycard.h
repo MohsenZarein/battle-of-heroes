@@ -7,12 +7,10 @@ class DrMarryCard : public Card
 {
 public:
     DrMarryCard(sf::RenderWindow*);
+    virtual ~DrMarryCard();
     virtual void draw() override;
     virtual void draw(sf::Vector2f,sf::Vector2f) override;
-    sf::Sprite& getCardTextureSprite();
-private:
-    sf::Texture CardTexture;
-    sf::Sprite CardTextureSprite;
+    virtual sf::Sprite& getCardTextureSprite() override;
 };
 
 #endif // DRMARRYCARD_H

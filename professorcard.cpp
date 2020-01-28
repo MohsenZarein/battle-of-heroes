@@ -9,6 +9,8 @@ ProfessorCard::ProfessorCard(sf::RenderWindow *window)
     CardTextureSprite.setTexture(CardTexture);
 }
 
+ProfessorCard::~ProfessorCard() {}
+
 void ProfessorCard::draw()
 {
     CardTextureSprite.setScale(Vector2f(0.3,0.3));
