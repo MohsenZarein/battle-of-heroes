@@ -8,7 +8,10 @@ Menu::Menu()
 {
     window = new RenderWindow(sf::VideoMode(1920,1080),"Battle of Basu",Style::Fullscreen);
 
-    Player1_MrsGhost = new MrsGhost(window);
+    player1 = new Player("Player1",window);
+    player2 = new Player("Player2",window);
+
+   /* Player1_MrsGhost = new MrsGhost(window);
     Player2_MrsGhost = new MrsGhost(window);
 
     Player1_Robi = new Robi(window);
@@ -37,6 +40,7 @@ Menu::Menu()
 
     Player1_Commander = new Commander(window);
     Player2_Commander = new Commander(window);
+    */
 
     gridPlayer1 = new Grid(9,9,window);
     gridPlayer2 = new Grid(9,9,window);
@@ -217,10 +221,57 @@ void Menu::exec()
               if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)){
                   currentState = Player2_ArrangeTeam;
+                  HeroName = None;
                   break;
               }
+              if(event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+              }
 
-              if(Player1_MrsGhost->mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+             /* if(player1->Player1_MrsGhost->mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                     HeroName = MrsGhost_Selected;
+               }
+
+              if(player1->Player1_Robi->robicard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed((Mouse::Left))) {
+                  HeroName = Robi_Selected;
+              }
+
+              if(player1->Player1_Leon->leoncard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = Leon_Selected;
+              }
+              if(player1->Player1_DrMarry->drmarrycard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = DrMarry_Selected;
+              }
+              if(player1->Player1_Snipper->snippercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = Snipper_Selected;
+              }
+              if(player1->Player1_Kratos->kratoscard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = Kratos_Selected;
+              }
+              if(player1->Player1_Giant->giantcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = Giant_Selected;
+              }
+              if(player1->Player1_AlphaMan->alphamancard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = AlphaMan_Selected;
+              }
+              if(player1->Player1_Professor->professorcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = Professor_Selected;
+              }
+              if(player1->Player1_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                  HeroName = Commander_Selected;
+              }*/
+
+             /* if(Player1_MrsGhost->mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                      HeroName = MrsGhost_Selected;
                }
@@ -261,58 +312,59 @@ void Menu::exec()
               if(Player1_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                   HeroName = Commander_Selected;
-              }
+              }*/
               for(int i=0 ; i<gridPlayer1->getRow() ; i++) {
                   for(int j=0 ; j<gridPlayer1->getCol() ; j++) {
                       if(gridPlayer1->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                               event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                           switch (HeroName) {
                           case MrsGhost_Selected:
-                              Player1_MrsGhost->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_MrsGhost);
+                              player1->mrsghost->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->mrsghost);
                               break;
                           case Robi_Selected:
-                              Player1_Robi->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Robi);
+                              player1->robi->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->robi);
                                break;
                           case Leon_Selected:
-                              Player1_Leon->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Leon);
+                              player1->leon->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->leon);
                               break;
                           case DrMarry_Selected:
-                              Player1_DrMarry->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_DrMarry);
+                              player1->drmarry->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->drmarry);
                               break;
                           case Snipper_Selected:
-                              Player1_Snipper->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Snipper);
+                              player1->snipper->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->snipper);
                               break;
                           case Kratos_Selected:
-                              Player1_Kratos->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Kratos);
+                              player1->kratos->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->kratos);
                               break;
                           case Giant_Selected:
-                              Player1_Giant->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Giant);
+                              player1->giant->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->giant);
                               break;
                            case AlphaMan_Selected:
-                              Player1_AlphaMan->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_AlphaMan);
+                              player1->alphaman->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->alphaman);
                               break;
                            case Professor_Selected:
-                              Player1_Professor->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Professor);
+                              player1->professor->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->professor);
                               break;
                            case Commander_Selected:
-                              Player1_Commander->set_position_on_grid(Vector2i(i,j));
-                              player1.SetHero(Player1_Commander);
+                              player1->commander->set_position_on_grid(Vector2i(i,j));
+                              player1->SetHero(player1->commander);
                               break;
                           default:
                               break;
                           }
                           //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
-                          std::cout<<player1.getHero().size()<<std::endl;
+                          //std::cout<<player1->getHero().size()<<std::endl;
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                          HeroName = None;
                           gridPlayer1->draw();
                           break;
                       }
@@ -320,16 +372,16 @@ void Menu::exec()
               }
 
                gridPlayer1->draw();
-               Player1_Robi->robicard.draw();
-               Player1_MrsGhost->mrsghostcard.draw();
-               Player1_Leon->leoncard.draw();
-               Player1_DrMarry->drmarrycard.draw();
-               Player1_Snipper->snippercard.draw();
-               Player1_Kratos->kratoscard.draw();
-               Player1_Giant->giantcard.draw();
-               Player1_AlphaMan->alphamancard.draw();
-               Player1_Professor->professorcard.draw();
-               Player1_Commander->commandercard.draw();
+               player1->robi->robicard.draw();
+               player1->mrsghost->mrsghostcard.draw();
+               player1->leon->leoncard.draw();
+               player1->drmarry->drmarrycard.draw();
+               player1->snipper->snippercard.draw();
+               player1->kratos->kratoscard.draw();
+               player1->giant->giantcard.draw();
+               player1->alphaman->alphamancard.draw();
+               player1->professor->professorcard.draw();
+               player1->commander->commandercard.draw();
                window->display();
 
              }
@@ -350,6 +402,10 @@ void Menu::exec()
                          event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                      currentState = LoadingPage;
                  }
+                 if(event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+
+                     player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                 }
 
                /* if (mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
                     mrsghostcard->getCardTextureSprite().setColor(Color::Magenta);
@@ -357,7 +413,7 @@ void Menu::exec()
                 }*/
 
 
-               if(Player2_MrsGhost-> mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+               /*if(Player2_MrsGhost-> mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                         event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                       HeroName = MrsGhost_Selected;
                 }
@@ -398,57 +454,60 @@ void Menu::exec()
                if(Player2_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                    HeroName = Commander_Selected;
-               }
+               }*/
                for(int i=0 ; i<gridPlayer2->getRow() ; i++) {
                    for(int j=0 ; j<gridPlayer2->getCol() ; j++) {
                        if(gridPlayer2->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                            switch (HeroName) {
                            case MrsGhost_Selected:
-                               Player2_MrsGhost->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_MrsGhost);
+                               player2->mrsghost->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->mrsghost);
                                break;
                            case Robi_Selected:
-                               Player2_Robi->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Robi);
+                               player2->robi->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->robi);
                                 break;
                            case Leon_Selected:
-                               Player2_Leon->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Leon);
+                               player2->leon->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->leon);
                                break;
                            case DrMarry_Selected:
-                               Player2_DrMarry->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_DrMarry);
+                               player2->drmarry->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->drmarry);
                                break;
                            case Snipper_Selected:
-                               Player2_Snipper->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Snipper);
+                               player2->snipper->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->snipper);
                                break;
                            case Kratos_Selected:
-                               Player2_Kratos->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Kratos);
+                               player2->kratos->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->kratos);
+
                                break;
                            case Giant_Selected:
-                               Player2_Giant->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Giant);
+                               player2->giant->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->giant);
                                break;
                            case AlphaMan_Selected:
-                               Player2_AlphaMan->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_AlphaMan);
+                               player2->alphaman->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->alphaman);
                                break;
                            case Professor_Selected:
-                               Player2_Professor->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Professor);
+                               player2->professor->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->professor);
                                break;
                            case Commander_Selected:
-                               Player2_Commander->set_position_on_grid(Vector2i(i,j));
-                               player2.SetHero(Player2_Commander);
+                               player2->commander->set_position_on_grid(Vector2i(i,j));
+                               player2->SetHero(player2->commander);
                                break;
                            default:
                                break;
                            }
                            //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
+                           std::cout<<player2->getHero().size()<<std::endl;
                            gridPlayer2->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                           HeroName = None;
                            gridPlayer2->draw();
                            break;
                        }
@@ -456,16 +515,16 @@ void Menu::exec()
                }
 
                 gridPlayer2->draw();
-                Player2_Robi->robicard.draw();
-                Player2_MrsGhost->mrsghostcard.draw();
-                Player2_Leon->leoncard.draw();
-                Player2_DrMarry->drmarrycard.draw();
-                Player2_Snipper->snippercard.draw();
-                Player2_Kratos->kratoscard.draw();
-                Player2_Giant->giantcard.draw();
-                Player2_AlphaMan->alphamancard.draw();
-                Player2_Professor->professorcard.draw();
-                Player2_Commander->commandercard.draw();
+                player2->robi->robicard.draw();
+                player2->mrsghost->mrsghostcard.draw();
+                player2->leon->leoncard.draw();
+                player2->drmarry->drmarrycard.draw();
+                player2->snipper->snippercard.draw();
+                player2->kratos->kratoscard.draw();
+                player2->giant->giantcard.draw();
+                player2->alphaman->alphamancard.draw();
+                player2->professor->professorcard.draw();
+                player2->commander->commandercard.draw();
                 window->display();
 
             }
@@ -489,11 +548,13 @@ void Menu::exec()
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
 
-                for(auto const &item : player1.getHero()) {
+                for(auto const &item : player1->getHero()) {
 
                        item->card->draw();
-                       if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
-                           item->card->getCardTextureSprite().setColor(Color::Yellow);
+                       if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                               event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+
+                          // Player1_MrsGhost->
                        }
                 }
 
@@ -526,38 +587,11 @@ Menu::~Menu()
 {
     delete window;
 
+    delete player1;
+    delete player2;
+
     delete gridPlayer1;
     delete gridPlayer2;
-
-    delete Player1_MrsGhost;
-    delete Player2_MrsGhost;
-
-    delete Player1_Robi;
-    delete Player2_Robi;
-
-    delete Player1_Leon;
-    delete Player2_Leon;
-
-    delete Player1_DrMarry;
-    delete Player2_DrMarry;
-
-    delete Player1_Snipper;
-    delete Player2_Snipper;
-
-    delete Player1_Kratos;
-    delete Player2_Kratos;
-
-    delete Player1_Giant;
-    delete Player2_Giant;
-
-    delete Player1_AlphaMan;
-    delete Player2_AlphaMan;
-
-    delete Player1_Professor;
-    delete Player2_Professor;
-
-    delete Player1_Commander;
-    delete Player2_Commander;
 }
 
 

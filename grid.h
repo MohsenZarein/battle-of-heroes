@@ -20,7 +20,7 @@ public:
     bool aRectIsSelected = false;
     std::vector<unsigned int> SelectedRows;
     std::vector<unsigned int> SelectedCols;
-    void setHeroIcon(sf::Vector2f, Heroes);
+    void setHeroIcon(sf::Vector2f, Heroes&);
 private:
     unsigned int row;
     unsigned int col;

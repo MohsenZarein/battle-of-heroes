@@ -68,7 +68,7 @@ Vector2f Grid::getCellSize()
     return cellSize;
 }
 
-void Grid::setHeroIcon(Vector2f pos, Heroes HeroName)
+void Grid::setHeroIcon(Vector2f pos, Heroes &HeroName)
 {
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {

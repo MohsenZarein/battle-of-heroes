@@ -47,10 +47,10 @@ private:
 
     Game game;
 
-    Player player1;
-    Player player2;
+    Player* player1;
+    Player* player2;
 
-    MrsGhost* Player1_MrsGhost;
+   /* MrsGhost* Player1_MrsGhost;
     MrsGhost* Player2_MrsGhost;
 
     Robi* Player1_Robi;
@@ -79,6 +79,7 @@ private:
 
     Commander* Player1_Commander;
     Commander* Player2_Commander;
+    */
 
     //MrsGhostCard* mrsghostcard ;
     //RobiCard* robicard ;
