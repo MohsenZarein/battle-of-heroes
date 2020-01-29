@@ -14,8 +14,12 @@ public:
     virtual unsigned short int& getPower() override;
     virtual sf::Vector2i& get_position_on_grid() override;
     void set_position_on_grid(sf::Vector2i);
+    bool& isDonateActive();
+    void setDonateCondition(bool);
+    void Donate(std::vector<Hero*>&);
     GiantCard giantcard ;
 private:
+    bool DonateCondition;
 };
 
 #endif // GIANT_H

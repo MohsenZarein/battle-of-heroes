@@ -11,37 +11,6 @@ Menu::Menu()
     player1 = new Player("Player1",window);
     player2 = new Player("Player2",window);
 
-   /* Player1_MrsGhost = new MrsGhost(window);
-    Player2_MrsGhost = new MrsGhost(window);
-
-    Player1_Robi = new Robi(window);
-    Player2_Robi = new Robi(window);
-
-    Player1_Leon = new Leon(window);
-    Player2_Leon = new Leon(window);
-
-    Player1_DrMarry = new DrMarry(window);
-    Player2_DrMarry = new DrMarry(window);
-
-    Player1_Snipper = new Snipper(window);
-    Player2_Snipper = new Snipper(window);
-
-    Player1_Kratos = new Kratos(window);
-    Player2_Kratos = new Kratos(window);
-
-    Player1_Giant = new Giant(window);
-    Player2_Giant = new Giant(window);
-
-    Player1_AlphaMan = new AlphaMan(window);
-    Player2_AlphaMan = new AlphaMan(window);
-
-    Player1_Professor = new Professor(window);
-    Player2_Professor = new Professor(window);
-
-    Player1_Commander = new Commander(window);
-    Player2_Commander = new Commander(window);
-    */
-
     gridPlayer1 = new Grid(9,9,window);
     gridPlayer2 = new Grid(9,9,window);
 
@@ -85,17 +54,6 @@ void Menu::exec()
     Event event;
     state currentState = MENU;
     Heroes HeroName = None;
-
-    //mrsghostcard = new MrsGhostCard(window);
-    //robicard = new RobiCard(window);
-    //leoncard = new LeonCard(window);
-    //drmarrycard = new DrMarryCard(window);
-    //snippercard = new SnipperCard(window);
-    //kratoscard = new KratosCard(window);
-    //giantcard = new GiantCard(window);
-    //alphamancard = new AlphaManCard(window);
-    //professorcard  = new ProfessorCard(window);
-    //commandercard = new CommanderCard(window);
 
     while(window->isOpen()) {
 
@@ -228,91 +186,6 @@ void Menu::exec()
                   player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
               }
 
-             /* if(player1->Player1_MrsGhost->mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                     HeroName = MrsGhost_Selected;
-               }
-
-              if(player1->Player1_Robi->robicard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed((Mouse::Left))) {
-                  HeroName = Robi_Selected;
-              }
-
-              if(player1->Player1_Leon->leoncard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Leon_Selected;
-              }
-              if(player1->Player1_DrMarry->drmarrycard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = DrMarry_Selected;
-              }
-              if(player1->Player1_Snipper->snippercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Snipper_Selected;
-              }
-              if(player1->Player1_Kratos->kratoscard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Kratos_Selected;
-              }
-              if(player1->Player1_Giant->giantcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Giant_Selected;
-              }
-              if(player1->Player1_AlphaMan->alphamancard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = AlphaMan_Selected;
-              }
-              if(player1->Player1_Professor->professorcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Professor_Selected;
-              }
-              if(player1->Player1_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Commander_Selected;
-              }*/
-
-             /* if(Player1_MrsGhost->mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                     HeroName = MrsGhost_Selected;
-               }
-
-              if(Player1_Robi->robicard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed((Mouse::Left))) {
-                  HeroName = Robi_Selected;
-              }
-
-              if(Player1_Leon->leoncard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Leon_Selected;
-              }
-              if(Player1_DrMarry->drmarrycard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = DrMarry_Selected;
-              }
-              if(Player1_Snipper->snippercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Snipper_Selected;
-              }
-              if(Player1_Kratos->kratoscard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Kratos_Selected;
-              }
-              if(Player1_Giant->giantcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Giant_Selected;
-              }
-              if(Player1_AlphaMan->alphamancard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = AlphaMan_Selected;
-              }
-              if(Player1_Professor->professorcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Professor_Selected;
-              }
-              if(Player1_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
-                      event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                  HeroName = Commander_Selected;
-              }*/
               for(int i=0 ; i<gridPlayer1->getRow() ; i++) {
                   for(int j=0 ; j<gridPlayer1->getCol() ; j++) {
                       if(gridPlayer1->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
@@ -408,54 +281,6 @@ void Menu::exec()
                      player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                  }
 
-               /* if (mrsghostcard->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
-                    mrsghostcard->getCardTextureSprite().setColor(Color::Magenta);
-                      //mrsghostcard->draw();
-                }*/
-
-
-               /*if(Player2_MrsGhost-> mrsghostcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                      HeroName = MrsGhost_Selected;
-                }
-
-               if(Player2_Robi->robicard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed((Mouse::Left))) {
-                   HeroName = Robi_Selected;
-               }
-
-               if(Player1_Leon->leoncard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = Leon_Selected;
-               }
-               if(Player2_DrMarry->drmarrycard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = DrMarry_Selected;
-               }
-               if(Player2_Snipper->snippercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = Snipper_Selected;
-               }
-               if(Player2_Kratos->kratoscard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = Kratos_Selected;
-               }
-               if(Player2_Giant->giantcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = Giant_Selected;
-               }
-               if(Player2_AlphaMan->alphamancard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = AlphaMan_Selected;
-               }
-               if(Player2_Professor->professorcard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = Professor_Selected;
-               }
-               if(Player2_Commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))&&
-                       event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
-                   HeroName = Commander_Selected;
-               }*/
                for(int i=0 ; i<gridPlayer2->getRow() ; i++) {
                    for(int j=0 ; j<gridPlayer2->getCol() ; j++) {
                        if(gridPlayer2->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
@@ -567,9 +392,17 @@ void Menu::exec()
                 for(auto const &item : player1->getHero()) {
 
                        item->card->draw();
+
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                            player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+
+                       }
+
+                       if(item->Name == "Giant" && item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                               event.key.code == Mouse::isButtonPressed(Mouse::Right)) {
+                           HeroName = Giant_Selected;
+                           player1->giant->setDonateCondition(true);
 
                        }
                 }
@@ -621,6 +454,41 @@ void Menu::exec()
                                 }
                                 HeroName = None;
                                 break;
+                            case Giant_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Giant") {
+                                        if(player1->giant->isDonateActive()) {
+
+                                            Giant* Gnt = dynamic_cast<Giant*>(item);
+                                            Gnt->Donate(player1->getHero());
+                                            Gnt->setDonateCondition(false);
+                                        }
+                                        else {
+                                            item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        }
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Leon_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Leon") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Professor_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Professor") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
                             default:
                                 break;
                             }
@@ -653,9 +521,17 @@ void Menu::exec()
                 for(auto const &item : player2->getHero()) {
 
                        item->card->draw();
+
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                            player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+
+                       }
+
+                       if(item->Name == "Giant" && item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                               event.key.code == Mouse::isButtonPressed(Mouse::Right)) {
+                           HeroName = Giant_Selected;
+                           player2->giant->setDonateCondition(true);
 
                        }
                 }
@@ -707,6 +583,41 @@ void Menu::exec()
                                }
                                HeroName = None;
                                break;
+                            case Giant_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Giant") {
+                                        if(player2->giant->isDonateActive()) {
+
+                                            Giant* Gnt = dynamic_cast<Giant*>(item);
+                                            Gnt->Donate(player2->getHero());
+                                            Gnt->setDonateCondition(false);
+                                        }
+                                        else {
+                                            item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        }
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Leon_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Leon") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Professor_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Professor") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
                             default:
                                 break;
                             }
