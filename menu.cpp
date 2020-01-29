@@ -597,6 +597,21 @@ void Menu::exec()
                                 }
                                 HeroName = None;
                                 break;
+                            case Commander_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Commander") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                if(player1->commander->isSecondAttackDone()) {
+                                    HeroName = None;
+                                    player1->commander->setSecondAttack(false);
+                                }
+                                else{
+                                    player1->commander->setSecondAttack(true);
+                                }
+                                break;
                             default:
                                 break;
                             }
@@ -649,6 +664,30 @@ void Menu::exec()
                                     }
                                 }
                                 HeroName = None;
+                                break;
+                            case AlphaMan_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "AlphaMan") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Commander_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Commander") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                if(player2->commander->isSecondAttackDone()) {
+                                    HeroName = None;
+                                    player2->commander->setSecondAttack(false);
+                                }
+                                else{
+                                    player2->commander->setSecondAttack(true);
+                                }
                                 break;
                             default:
                                 break;

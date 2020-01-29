@@ -12,10 +12,7 @@ AlphaMan::AlphaMan(sf::RenderWindow* window) : alphamancard(window)
     card = &alphamancard;
 }
 
-AlphaMan::~AlphaMan()
-{
-
-}
+AlphaMan::~AlphaMan() {}
 
 void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::vector<Hero*> &OpponentHeroes)
 {
