@@ -16,7 +16,7 @@ public:
     void set_position_on_grid(sf::Vector2i);
     AlphaManCard alphamancard ;
 private:
-
+    void SpecialPower(sf::Vector2i,Grid*,std::vector<Hero*>&);
 };
 
 #endif // ALPHAMAN_H

@@ -549,6 +549,20 @@ void Menu::exec()
             if(currentState == Player2_BattleField) {
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
+                window->draw(game.getNextPlayerOption());
+
+                if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+                    game.getNextPlayerOption().setFillColor(Color::Magenta);
+                }
+                else {
+                    game.getNextPlayerOption().setFillColor(Color::White);
+                }
+
+                if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                    currentState = Player1_BattleField;
+                    break;
+                }
 
                 for(auto const &item : player1->getHero()) {
 
@@ -569,10 +583,20 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "MrsGhost") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
                                     }
                                 }
+                                HeroName = None;
                                 break;
-
+                            case AlphaMan_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "AlphaMan") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
                             default:
                                 break;
                             }
@@ -581,6 +605,59 @@ void Menu::exec()
                 }
 
                 BattleField_P2->draw();
+                window->display();
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if(currentState == Player1_BattleField) {
+                window->clear();
+                window->draw(game.getGameBackgroundSprite());
+                window->draw(game.getNextPlayerOption());
+
+                if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+                    game.getNextPlayerOption().setFillColor(Color::Magenta);
+                }
+                else {
+                    game.getNextPlayerOption().setFillColor(Color::White);
+                }
+
+                if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                        event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                    currentState = Player2_BattleField;
+                    break;
+                }
+
+                for(auto const &item : player2->getHero()) {
+
+                       item->card->draw();
+                       if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                               event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                           player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+
+                       }
+                }
+
+                for(int i=0 ; i<BattleField_P1->getRow() ; i++) {
+                    for(int j=0 ; j<BattleField_P1->getCol() ; j++) {
+                        if(BattleField_P1->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
+                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+                            switch (HeroName) {
+                            case MrsGhost_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "MrsGhost") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            default:
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                BattleField_P1->draw();
                 window->display();
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

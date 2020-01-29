@@ -18,7 +18,7 @@ MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
 
 MrsGhost::~MrsGhost() {}
 
-void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*>& OpponentHeroes)
+void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::vector<Hero*>& OpponentHeroes)
 {
     for(int i=0 ; i<OpponentGrid->getRow() ; i++) {
         for(int j=0 ; j<OpponentGrid->getCol() ; j++) {
@@ -48,11 +48,12 @@ void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::ve
                             this->getHealth() -= 2;
                         }
                         else if(item->Name == "Professor") {
-                            for(int k=0 ; k<myGrid->getRow() ; k++) {
-                                for(int m=0 ; m<myGrid->getCol() ; m++) {
+                            for(int k=0 ; k<ThisGrid->getRow() ; k++) {
+                                for(int m=0 ; m<ThisGrid->getCol() ; m++) {
                                     if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
                                         this->ChangeVisibility(true);
-                                        myGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                        ThisGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                        ThisGrid->gridArr[k][m].setFillColor(Color::White);
                                     }
                                 }
                             }

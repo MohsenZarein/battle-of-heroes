@@ -28,10 +28,10 @@ Game::Game()
     BackOption.setPosition(0,50);
 
     NextPlayerOption.setFont(GameFont);
-    NextPlayerOption.setString("Next playe");
+    NextPlayerOption.setString("Next player");
     NextPlayerOption.setCharacterSize(50);
     NextPlayerOption.setColor(Color::White);
-    NextPlayerOption.setPosition(1450,0);
+    NextPlayerOption.setPosition(1440,0);
 
     GoToGameOption.setFont(GameFont);
     GoToGameOption.setString("GO TO GAME ...");
