@@ -612,6 +612,15 @@ void Menu::exec()
                                     player1->commander->setSecondAttack(true);
                                 }
                                 break;
+                             case DrMarry_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "DrMarry") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
                             default:
                                 break;
                             }
@@ -689,6 +698,15 @@ void Menu::exec()
                                     player2->commander->setSecondAttack(true);
                                 }
                                 break;
+                            case DrMarry_Selected:
+                               for(auto const &item : player2->getHero()) {
+                                   if(item->Name == "DrMarry") {
+                                       item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                       break;
+                                   }
+                               }
+                               HeroName = None;
+                               break;
                             default:
                                 break;
                             }
