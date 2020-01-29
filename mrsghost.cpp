@@ -44,10 +44,8 @@ void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::ve
                            OpponentGrid->gridArr[i][j].setFillColor(Color::White);
                         }
                         item->getHealth() -= this->getPower();
-                        std::cout<<item->getHealth()<<std::endl;
                         if(item->Name == "Leon") {
                             this->getHealth() -= 2;
-                            std::cout<<this->getHealth()<<std::endl;
                         }
                         else if(item->Name == "Professor") {
                             for(int k=0 ; k<myGrid->getRow() ; k++) {
@@ -59,8 +57,10 @@ void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::ve
                                 }
                             }
                         }
+                        return;
                     }
                 }
+                return;
             }
         }
     }
