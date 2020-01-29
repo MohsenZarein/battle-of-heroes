@@ -11,12 +11,15 @@ public:
     MrsGhost(sf::RenderWindow*);
     virtual ~MrsGhost();
     virtual void Attack(sf::Vector2i,Grid*,std::vector<Hero*>&) override;
-    virtual bool isVisible() const override;
+    virtual float& getHealth() override;
+    virtual unsigned short int& getPower() override;
+    virtual sf::Vector2i& get_position_on_grid() override;
+    bool& isVisible();
+    void ChangeVisibility(bool);
     void set_position_on_grid(sf::Vector2i);
-    sf::Vector2i& get_position_on_grid();
     MrsGhostCard mrsghostcard ;
 private:
-    unsigned short int VisibilityRate;
+    bool visibility;
 };
 
 #endif // MRSGHOST_H

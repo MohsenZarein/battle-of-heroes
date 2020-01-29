@@ -19,10 +19,16 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &O
 
 }
 
-bool AlphaMan::isVisible() const
+float &AlphaMan::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& AlphaMan::getPower()
+{
+    return power;
+}
+
 
 void AlphaMan::set_position_on_grid(sf::Vector2i position_on_grid)
 {

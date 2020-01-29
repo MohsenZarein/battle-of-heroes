@@ -19,10 +19,16 @@ void Leon::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*>& Oppon
 
 }
 
-bool Leon::isVisible() const
+float& Leon::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& Leon::getPower()
+{
+    return power;
+}
+
 
 void Leon::set_position_on_grid(sf::Vector2i position_on_grid)
 {

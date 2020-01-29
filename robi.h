@@ -10,9 +10,10 @@ public:
     Robi(sf::RenderWindow*);
     virtual ~Robi();
     virtual void Attack(sf::Vector2i,Grid*,std::vector<Hero*>&) override;
-    virtual bool isVisible() const override;
+    virtual float& getHealth() override;
+    virtual unsigned short int& getPower() override;
+    virtual sf::Vector2i& get_position_on_grid() override;
     void set_position_on_grid(sf::Vector2i);
-    sf::Vector2i& get_position_on_grid();
     RobiCard robicard ;
 private:
 };

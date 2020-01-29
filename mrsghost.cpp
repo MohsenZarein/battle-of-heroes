@@ -1,4 +1,5 @@
 #include "mrsghost.h"
+#include <iostream>
 
 using namespace sf;
 
@@ -7,6 +8,7 @@ MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
 {
     this->window = window;
     Name = "MrsGhost";
+    visibility = false;
    // mrsghostcard = new MrsGhostCard(window);
     card = &mrsghostcard;
     //mrsghostcard = dynamic_cast<MrsGhostCard*>(card);
@@ -25,20 +27,49 @@ void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*>& O
                     OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
                 for(auto item : OpponentHeroes) {
                     if(item->get_position_on_grid() == goal) {
-                        OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
-                        OpponentGrid->gridArr[i][j].setFillColor(Color::White);
+                        if(item->Name == "MrsGhost") {
+                            MrsGhost* MGH = dynamic_cast<MrsGhost*>(item);
+                            if(MGH->isVisible()) {
+                                OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
+                                OpponentGrid->gridArr[i][j].setFillColor(Color::White);
+                            }
+                            else {
+                                MGH->ChangeVisibility(true);
+                            }
+                        }
+                        else{
+                           OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
+                           OpponentGrid->gridArr[i][j].setFillColor(Color::White);
+                        }
+
                     }
                 }
-
             }
         }
     }
 }
 
-bool MrsGhost::isVisible() const
+float& MrsGhost::getHealth()
 {
-    return true;
+    return health;
 }
+
+unsigned short int& MrsGhost::getPower()
+{
+    return power;
+}
+
+bool& MrsGhost::isVisible()
+{
+    return visibility;
+}
+
+void MrsGhost::ChangeVisibility(bool visibility)
+{
+    this->visibility = visibility;
+}
+
+
 
 void MrsGhost::set_position_on_grid(sf::Vector2i position_on_grid)
 {

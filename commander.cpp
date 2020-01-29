@@ -19,10 +19,16 @@ void Commander::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &
 
 }
 
-bool Commander::isVisible() const
+float& Commander::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& Commander::getPower()
+{
+    return power;
+}
+
 
 void Commander::set_position_on_grid(sf::Vector2i positio_on_grid)
 {

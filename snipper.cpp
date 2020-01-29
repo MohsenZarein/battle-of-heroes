@@ -19,9 +19,14 @@ void Snipper::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &Op
 
 }
 
-bool Snipper::isVisible() const
+float &Snipper::getHealth()
 {
+    return health;
+}
 
+unsigned short int& Snipper::getPower()
+{
+    return power;
 }
 
 void Snipper::set_position_on_grid(sf::Vector2i position_on_grid)

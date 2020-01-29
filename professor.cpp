@@ -19,10 +19,16 @@ void Professor::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &
 
 }
 
-bool Professor::isVisible() const
+float& Professor::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& Professor::getPower()
+{
+    return power;
+}
+
 
 void Professor::set_position_on_grid(sf::Vector2i position_on_grid)
 {

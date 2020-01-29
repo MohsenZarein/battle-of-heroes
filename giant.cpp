@@ -19,10 +19,16 @@ void Giant::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &Oppo
 
 }
 
-bool Giant::isVisible() const
+float& Giant::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& Giant::getPower()
+{
+    return power;
+}
+
 
 void Giant::set_position_on_grid(sf::Vector2i position_on_grid)
 {

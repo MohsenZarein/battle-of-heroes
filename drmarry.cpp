@@ -19,10 +19,16 @@ void DrMarry::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &Op
 
 }
 
-bool DrMarry::isVisible() const
+float& DrMarry::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& DrMarry::getPower()
+{
+    return power;
+}
+
 
 void DrMarry::set_position_on_grid(sf::Vector2i position_on_grid)
 {

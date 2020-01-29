@@ -19,10 +19,16 @@ void Kratos::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &Opp
 
 }
 
-bool Kratos::isVisible() const
+float& Kratos::getHealth()
 {
-
+    return health;
 }
+
+unsigned short int& Kratos::getPower()
+{
+    return power;
+}
+
 
 void Kratos::set_position_on_grid(sf::Vector2i position_on_grid)
 {
