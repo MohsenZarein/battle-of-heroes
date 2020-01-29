@@ -6,6 +6,8 @@ Commander::Commander(sf::RenderWindow* window) : commandercard(window)
 {
     Name = "Commander";
     this->window = window;
+    health = 7;
+    power = 3;
     card = &commandercard;
 }
 
@@ -14,12 +16,12 @@ Commander::~Commander()
 
 }
 
-void Commander::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void Commander::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float& Commander::getHealth()
+unsigned short int& Commander::getHealth()
 {
     return health;
 }

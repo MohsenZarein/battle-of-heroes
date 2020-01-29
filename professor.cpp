@@ -6,6 +6,8 @@ Professor::Professor(sf::RenderWindow* window) : professorcard(window)
 {
     Name  = "Professor";
     this->window = window;
+    health = 11;
+    power = 3;
     card = &professorcard;
 }
 
@@ -14,12 +16,12 @@ Professor::~Professor()
 
 }
 
-void Professor::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void Professor::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float& Professor::getHealth()
+unsigned short int& Professor::getHealth()
 {
     return health;
 }

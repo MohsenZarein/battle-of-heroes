@@ -9,6 +9,8 @@ MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
     this->window = window;
     Name = "MrsGhost";
     visibility = false;
+    health = 15;
+    power = 3;
    // mrsghostcard = new MrsGhostCard(window);
     card = &mrsghostcard;
     //mrsghostcard = dynamic_cast<MrsGhostCard*>(card);
@@ -16,7 +18,7 @@ MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
 
 MrsGhost::~MrsGhost() {}
 
-void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*>& OpponentHeroes)
+void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*>& OpponentHeroes)
 {
     for(int i=0 ; i<OpponentGrid->getRow() ; i++) {
         for(int j=0 ; j<OpponentGrid->getCol() ; j++) {
@@ -41,7 +43,22 @@ void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*>& O
                            OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
                            OpponentGrid->gridArr[i][j].setFillColor(Color::White);
                         }
-
+                        item->getHealth() -= this->getPower();
+                        std::cout<<item->getHealth()<<std::endl;
+                        if(item->Name == "Leon") {
+                            this->getHealth() -= 2;
+                            std::cout<<this->getHealth()<<std::endl;
+                        }
+                        else if(item->Name == "Professor") {
+                            for(int k=0 ; k<myGrid->getRow() ; k++) {
+                                for(int m=0 ; m<myGrid->getCol() ; m++) {
+                                    if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
+                                        this->ChangeVisibility(true);
+                                        myGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -49,7 +66,7 @@ void MrsGhost::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*>& O
     }
 }
 
-float& MrsGhost::getHealth()
+unsigned short int& MrsGhost::getHealth()
 {
     return health;
 }

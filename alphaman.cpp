@@ -6,6 +6,8 @@ AlphaMan::AlphaMan(sf::RenderWindow* window) : alphamancard(window)
 {
     Name = "AlphaMan";
     this->window = window;
+    health = 13;
+    power = 2;
     card = &alphamancard;
 }
 
@@ -14,12 +16,12 @@ AlphaMan::~AlphaMan()
 
 }
 
-void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float &AlphaMan::getHealth()
+unsigned short int& AlphaMan::getHealth()
 {
     return health;
 }

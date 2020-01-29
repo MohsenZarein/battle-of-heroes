@@ -568,7 +568,7 @@ void Menu::exec()
                             case MrsGhost_Selected:
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "MrsGhost") {
-                                        item->Attack(Vector2i(i,j),BattleField_P2,player2->getHero());
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                     }
                                 }
                                 break;

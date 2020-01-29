@@ -6,6 +6,8 @@ Giant::Giant(sf::RenderWindow* window) : giantcard(window)
 {
     Name = "Giant";
     this->window = window;
+    health = 20;
+    power = 4;
     card = &giantcard;
 }
 
@@ -14,12 +16,12 @@ Giant::~Giant()
 
 }
 
-void Giant::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void Giant::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float& Giant::getHealth()
+unsigned short int& Giant::getHealth()
 {
     return health;
 }

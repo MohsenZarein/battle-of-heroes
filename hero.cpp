@@ -2,7 +2,7 @@
 
 Hero::~Hero() {}
 
-float& Hero::getHealth() {}
+unsigned short int& Hero::getHealth() {}
 
 unsigned short& Hero::getPower() {}
 

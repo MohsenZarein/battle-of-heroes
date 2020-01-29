@@ -6,6 +6,8 @@ Robi::Robi(sf::RenderWindow* window) : robicard(window)
 {
     Name = "Robi";
     this->window = window;
+    health = 12;
+    power = 2;
     card = &robicard;
 }
 
@@ -14,12 +16,12 @@ Robi::~Robi()
 
 }
 
-void Robi::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void Robi::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float& Robi::getHealth()
+unsigned short int& Robi::getHealth()
 {
     return health;
 }

@@ -6,6 +6,8 @@ Leon::Leon(sf::RenderWindow* window) : leoncard(window)
 {
     Name = "Leon";
     this->window = window;
+    health = 10;
+    power = 3;
     card = &leoncard;
 }
 
@@ -14,12 +16,12 @@ Leon::~Leon()
 
 }
 
-void Leon::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*>& OpponentHeroes)
+void Leon::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*>& OpponentHeroes)
 {
 
 }
 
-float& Leon::getHealth()
+unsigned short int& Leon::getHealth()
 {
     return health;
 }

@@ -6,6 +6,8 @@ DrMarry::DrMarry(sf::RenderWindow* window) : drmarrycard(window)
 {
     Name = "DrMarry";
     this->window = window;
+    health = 8;
+    power = 2;
     card = &drmarrycard;
 }
 
@@ -14,12 +16,12 @@ DrMarry::~DrMarry()
 
 }
 
-void DrMarry::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void DrMarry::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float& DrMarry::getHealth()
+unsigned short int& DrMarry::getHealth()
 {
     return health;
 }

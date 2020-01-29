@@ -6,6 +6,8 @@ Snipper::Snipper(sf::RenderWindow* window) : snippercard(window)
 {
     Name = "Snipper";
     this->window = window;
+    health = 9;
+    power = 4;
     card = &snippercard;
 }
 
@@ -14,12 +16,12 @@ Snipper::~Snipper()
 
 }
 
-void Snipper::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void Snipper::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid,  std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float &Snipper::getHealth()
+unsigned short int& Snipper::getHealth()
 {
     return health;
 }

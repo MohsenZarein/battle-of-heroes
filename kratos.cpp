@@ -6,6 +6,8 @@ Kratos::Kratos(sf::RenderWindow* window) : kratoscard(window)
 {
     Name = "Kratos";
     this->window = window;
+    health = 15;
+    power = 3;
     card = &kratoscard;
 }
 
@@ -14,12 +16,12 @@ Kratos::~Kratos()
 
 }
 
-void Kratos::Attack(Vector2i goal , Grid* OpponentGrid , std::vector<Hero*> &OpponentHeroes)
+void Kratos::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vector<Hero*> &OpponentHeroes)
 {
 
 }
 
-float& Kratos::getHealth()
+unsigned short int& Kratos::getHealth()
 {
     return health;
 }
