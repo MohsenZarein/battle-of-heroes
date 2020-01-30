@@ -37,7 +37,7 @@ Game::Game()
     GoToGameOption.setString("GO TO GAME ...");
     GoToGameOption.setCharacterSize(50);
     GoToGameOption.setColor(Color::White);
-    GoToGameOption.setPosition(1400,0);
+    GoToGameOption.setPosition(1400,980);
 
     Loading.setFont(GameFont);
     Loading.setString("Loading . . . ");

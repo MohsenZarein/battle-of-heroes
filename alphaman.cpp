@@ -81,14 +81,14 @@ void AlphaMan::set_position_on_grid(sf::Vector2i position_on_grid)
     this->position_on_grid = position_on_grid;
 }
 
-void AlphaMan::SpecialPower(Vector2i goal, Grid* OpponentGrid, std::vector<Hero *>& OpponenentHeroes)
+void AlphaMan::SpecialPower(Vector2i goal, Grid* OpponentGrid, std::vector<Hero *>& OpponentHeroes)
 {
     for(int i=0 ; i<OpponentGrid->getRow() ; i++) {
         for(int j=0 ; j<OpponentGrid->getCol() ; j++) {
             if(i==goal.x && j==goal.y) {
-                for(auto item : OpponenentHeroes) {
-                    if(item->get_position_on_grid().x == i && item->get_position_on_grid().y == j-1) {item->getHealth() --; std::cout<<item->getHealth()<<std::endl;}
-                        //item->getHealth() --;
+                for(auto item : OpponentHeroes) {
+                    if(item->get_position_on_grid().x == i && item->get_position_on_grid().y == j-1)
+                        item->getHealth() --;
                     if(item->get_position_on_grid().x == i-1 && item->get_position_on_grid().y == j)
                         item->getHealth() --;
                     if(item->get_position_on_grid().x == i+1 && item->get_position_on_grid().y == j)

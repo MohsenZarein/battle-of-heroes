@@ -16,6 +16,7 @@ public:
     void set_position_on_grid(sf::Vector2i);
     RobiCard robicard ;
 private:
+    void SpecialPower(sf::Vector2i,Grid*,std::vector<Hero*>&);
 };
 
 #endif // ROBI_H

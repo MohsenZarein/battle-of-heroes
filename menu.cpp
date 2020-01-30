@@ -396,6 +396,9 @@ void Menu::exec()
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                            player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                           if(item->Name == "Giant") {
+                               player1->giant->setDonateCondition(false);
+                           }
 
                        }
 
@@ -483,6 +486,15 @@ void Menu::exec()
                             case Professor_Selected:
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "Professor") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Robi_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Robi") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         break;
                                     }
@@ -612,6 +624,15 @@ void Menu::exec()
                             case Professor_Selected:
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Professor") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Robi_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Robi") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         break;
                                     }
