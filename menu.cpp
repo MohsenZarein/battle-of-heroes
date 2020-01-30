@@ -239,6 +239,7 @@ void Menu::exec()
                           //std::cout<<player1->getHero().at(0)->get_position_on_grid().x<<std::endl;
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                           HeroName = None;
+                          std::cout<<player1->getHero().size()<<std::endl;
                           gridPlayer1->draw();
                           break;
                       }
@@ -395,17 +396,8 @@ void Menu::exec()
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+
                            player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
-                           if(item->Name == "Giant") {
-                               player1->giant->setDonateCondition(false);
-                           }
-
-                       }
-
-                       if(item->Name == "Giant" && item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                               event.key.code == Mouse::isButtonPressed(Mouse::Right)) {
-                           HeroName = Giant_Selected;
-                           player1->giant->setDonateCondition(true);
 
                        }
                 }
@@ -501,6 +493,15 @@ void Menu::exec()
                                 }
                                 HeroName = None;
                                 break;
+                            case Snipper_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Snipper") {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
                             default:
                                 break;
                             }
@@ -536,14 +537,8 @@ void Menu::exec()
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+
                            player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
-
-                       }
-
-                       if(item->Name == "Giant" && item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
-                               event.key.code == Mouse::isButtonPressed(Mouse::Right)) {
-                           HeroName = Giant_Selected;
-                           player2->giant->setDonateCondition(true);
 
                        }
                 }
@@ -633,6 +628,15 @@ void Menu::exec()
                             case Robi_Selected:
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Robi") {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Snipper_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Snipper") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         break;
                                     }

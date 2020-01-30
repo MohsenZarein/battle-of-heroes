@@ -25,11 +25,16 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
                     OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
                 for(auto item : OpponentHeroes) {
                     if(item->get_position_on_grid() == goal) {
+                        item->getHealth() -= this->getPower();
+                        SpecialPower(goal,OpponentGrid,OpponentHeroes);
                         if(item->Name == "MrsGhost") {
                             MrsGhost* MGH = dynamic_cast<MrsGhost*>(item);
                             if(MGH->isVisible()) {
                                 OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
-                                OpponentGrid->gridArr[i][j].setFillColor(Color::White);
+                                if(item->getHealth() < 1)
+                                    OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
+                                else
+                                    OpponentGrid->gridArr[i][j].setFillColor(Color::White);
                             }
                             else {
                                 MGH->ChangeVisibility(true);
@@ -37,11 +42,11 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
                         }
                         else{
                            OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
-                           OpponentGrid->gridArr[i][j].setFillColor(Color::White);
+                           if(item->getHealth() < 1)
+                                OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
+                           else
+                               OpponentGrid->gridArr[i][j].setFillColor(Color::White);
                         }
-
-                        item->getHealth() -= this->getPower();
-                        SpecialPower(goal,OpponentGrid,OpponentHeroes);
 
                         if(item->Name == "Leon") {
                             this->getHealth() -= 2;
@@ -51,7 +56,10 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
                                 for(int m=0 ; m<ThisGrid->getCol() ; m++) {
                                     if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
                                         ThisGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
-                                        ThisGrid->gridArr[k][m].setFillColor(Color::White);
+                                        if(this->getHealth() < 1)
+                                            ThisGrid->gridArr[k][m].setFillColor(Color::Red);
+                                        else
+                                            ThisGrid->gridArr[k][m].setFillColor(Color::White);
                                     }
                                 }
                             }
@@ -65,7 +73,7 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
     }
 }
 
-unsigned short int& AlphaMan::getHealth()
+short int& AlphaMan::getHealth()
 {
     return health;
 }

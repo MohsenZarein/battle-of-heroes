@@ -7,37 +7,6 @@ Player::Player(const std::string PlayerName,RenderWindow* window)
     this->PlayerName = PlayerName;
     this->window = window;
 
-   /* Player1_MrsGhost = new MrsGhost(window);
-    Player2_MrsGhost = new MrsGhost(window);
-
-    Player1_Robi = new Robi(window);
-    Player2_Robi = new Robi(window);
-
-    Player1_Leon = new Leon(window);
-    Player2_Leon = new Leon(window);
-
-    Player1_DrMarry = new DrMarry(window);
-    Player2_DrMarry = new DrMarry(window);
-
-    Player1_Snipper = new Snipper(window);
-    Player2_Snipper = new Snipper(window);
-
-    Player1_Kratos = new Kratos(window);
-    Player2_Kratos = new Kratos(window);
-
-    Player1_Giant = new Giant(window);
-    Player2_Giant = new Giant(window);
-
-    Player1_AlphaMan = new AlphaMan(window);
-    Player2_AlphaMan = new AlphaMan(window);
-
-    Player1_Professor = new Professor(window);
-    Player2_Professor = new Professor(window);
-
-    Player1_Commander = new Commander(window);
-    Player2_Commander = new Commander(window);
-    */
-
     mrsghost = new MrsGhost(window);
     robi = new Robi(window);
     leon = new Leon(window);
@@ -54,6 +23,7 @@ Player::Player(const std::string PlayerName,RenderWindow* window)
 
 void Player::SetHero(Hero* a_Hero)
 {
+    static int x = HeroesOfPlayer.size();
     HeroesOfPlayer.push_back(a_Hero);
 }
 
@@ -159,38 +129,6 @@ void Player::WhichHeroIsSelected(sf::Vector2f pos,Heroes &HeroName)
 
 Player::~Player()
 {
-
-   /* delete Player1_MrsGhost;
-    delete Player2_MrsGhost;
-
-    delete Player1_Robi;
-    delete Player2_Robi;
-
-    delete Player1_Leon;
-    delete Player2_Leon;
-
-    delete Player1_DrMarry;
-    delete Player2_DrMarry;
-
-    delete Player1_Snipper;
-    delete Player2_Snipper;
-
-    delete Player1_Kratos;
-    delete Player2_Kratos;
-
-    delete Player1_Giant;
-    delete Player2_Giant;
-
-    delete Player1_AlphaMan;
-    delete Player2_AlphaMan;
-
-    delete Player1_Professor;
-    delete Player2_Professor;
-
-    delete Player1_Commander;
-    delete Player2_Commander;
-    */
-
     delete mrsghost;
     delete robi;
     delete leon;

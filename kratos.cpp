@@ -21,7 +21,7 @@ void Kratos::Attack(Vector2i goal , Grid* OpponentGrid , Grid* myGrid, std::vect
 
 }
 
-unsigned short int& Kratos::getHealth()
+short int& Kratos::getHealth()
 {
     return health;
 }
