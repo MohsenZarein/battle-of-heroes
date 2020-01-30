@@ -1,6 +1,7 @@
 #include "menu.h"
 #include <iostream>
 #include <chrono>
+#include <typeinfo>
 
 using namespace sf;
 
@@ -20,31 +21,31 @@ Menu::Menu()
     MenuBackground.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/5048584-banner-battle-lightning-warrior.jpg");
     MenuBackgroundSprite.setTexture(MenuBackground);
 
-    MenuFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/TarrgetOutlineItalic-63LM.otf");
+    MenuFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/Lokananta.ttf");
 
     option1.setFont(MenuFont);
     option1.setString("single player");
-    option1.setCharacterSize(50);
+    option1.setCharacterSize(80);
     option1.setColor(Color::White);
     option1.setPosition(1920/3,0);
 
     option2.setFont(MenuFont);
-    option2.setString("multi plyer");
-    option2.setCharacterSize(50);
+    option2.setString("multi player");
+    option2.setCharacterSize(80);
     option2.setColor(Color::White);
-    option2.setPosition((1920/3)+50,50);
+    option2.setPosition((1920/3)+50,100);
 
     option3.setFont(MenuFont);
     option3.setString("credit");
-    option3.setCharacterSize(50);
+    option3.setCharacterSize(80);
     option3.setColor(Color::White);
-    option3.setPosition((1920/3)+100,100);
+    option3.setPosition((1920/3)+100,200);
 
     option4.setFont(MenuFont);
     option4.setString("quit");
-    option4.setCharacterSize(50);
+    option4.setCharacterSize(80);
     option4.setColor(Color::White);
-    option4.setPosition((1920/3)+150,150);
+    option4.setPosition((1920/3)+150,280);
 
 }
 
@@ -169,6 +170,7 @@ void Menu::exec()
               window->clear();
               window->draw(game.getGameBackgroundSprite());
               window->draw(game.getNextPlayerOption());
+              window->draw(game.getPlayer1Text());
 
               if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))){
                   game.getNextPlayerOption().setColor(Color::Magenta);
@@ -239,7 +241,6 @@ void Menu::exec()
                           //std::cout<<player1->getHero().at(0)->get_position_on_grid().x<<std::endl;
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                           HeroName = None;
-                          std::cout<<player1->getHero().size()<<std::endl;
                           gridPlayer1->draw();
                           break;
                       }
@@ -266,6 +267,7 @@ void Menu::exec()
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
                 window->draw(game.getGoToGameOption());
+                window->draw(game.getPlayer2Text());
 
                  if(game.getGoToGameOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))){
                      game.getGoToGameOption().setColor(Color::Magenta);
@@ -335,6 +337,7 @@ void Menu::exec()
                            //std::cout<<player2->getHero().size()<<std::endl;
                            //std::cout<<player2->getHero().back()->get_position_on_grid().x<<std::endl;
                            gridPlayer2->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                           std::cout<<player2->getHero().size()<<std::endl;
                            HeroName = None;
                            gridPlayer2->draw();
                            break;
@@ -400,6 +403,11 @@ void Menu::exec()
                            player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
 
                        }
+                }
+                short int counter = 0;
+                for(auto item : player2->getHero()) {
+                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter*130)+50),item->getHealth());
+                    counter++;
                 }
 
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {
@@ -541,6 +549,12 @@ void Menu::exec()
                            player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
 
                        }
+                }
+
+                short int counter = 0;
+                for(auto item : player1->getHero()) {
+                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter*130)+50),item->getHealth());
+                    counter++;
                 }
 
                 for(int i=0 ; i<BattleField_P1->getRow() ; i++) {

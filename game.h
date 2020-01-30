@@ -15,6 +15,8 @@ public:
     sf::Text& getLoading();
     sf::Sprite& getExpToStTheGameTexSprite();
     sf::Text& getBattleOfBasu();
+    sf::Text& getPlayer1Text();
+    sf::Text& getPlayer2Text();
 private:
     sf::Texture GameBackground;
     sf::Texture PlayerBackground;
@@ -31,6 +33,8 @@ private:
     sf::Text GoToGameOption;
     sf::Text Loading;
     sf::Text BattleOfBasu;
+    sf::Text Player1;
+    sf::Text Player2;
 
 };
 

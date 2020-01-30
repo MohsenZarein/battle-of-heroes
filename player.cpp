@@ -23,7 +23,6 @@ Player::Player(const std::string PlayerName,RenderWindow* window)
 
 void Player::SetHero(Hero* a_Hero)
 {
-    static int x = HeroesOfPlayer.size();
     HeroesOfPlayer.push_back(a_Hero);
 }
 

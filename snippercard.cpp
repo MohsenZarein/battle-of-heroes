@@ -17,10 +17,27 @@ void SnipperCard::draw()
     window->draw(CardTextureSprite);
 }
 
-void SnipperCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition)
+void SnipperCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition , short int& health)
 {
     CardTextureSprite.setScale(CardScale);
     CardTextureSprite.setPosition(CardPosition);
+
+    CardName.setFont(CardFont);
+    CardName.setString("Name : Snipper");
+    CardName.setCharacterSize(30);
+    CardName.setFillColor(Color::Yellow);
+    CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
+
+    std::ostringstream osss;
+    osss<<"Damage : "<<health;
+    Damage.setFont(CardFont);
+    Damage.setString(osss.str());
+    Damage.setCharacterSize(30);
+    Damage.setFillColor(Color::Yellow);
+    Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);
+
+    window->draw(CardName);
+    window->draw(Damage);
     window->draw(CardTextureSprite);
 }
 
