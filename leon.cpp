@@ -9,6 +9,7 @@ Leon::Leon(sf::RenderWindow* window) : leoncard(window)
     this->window = window;
     health = 10;
     power = 3;
+    Selected = false;
     card = &leoncard;
 }
 

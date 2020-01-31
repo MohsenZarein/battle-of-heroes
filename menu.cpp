@@ -48,7 +48,7 @@ Menu::Menu()
     option4.setString("quit");
     option4.setCharacterSize(80);
     option4.setColor(Color::White);
-    option4.setPosition((1920/3)+150,280);
+    option4.setPosition((1920/3)+150,300);
 
 }
 
@@ -58,6 +58,7 @@ void Menu::exec()
     Event event;
     state currentState = MENU;
     Heroes HeroName = None;
+    int WhichPlayerWon = -1;
 
     while(window->isOpen()) {
 
@@ -197,43 +198,93 @@ void Menu::exec()
                               event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                           switch (HeroName) {
                           case MrsGhost_Selected:
+                              if(player1->mrsghost->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->mrsghost->set_position_on_grid(Vector2i(i,j));
+                              player1->mrsghost->Selected = true;
                               player1->SetHero(player1->mrsghost);
                               break;
                           case Robi_Selected:
+                              if(player1->robi->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->robi->set_position_on_grid(Vector2i(i,j));
+                              player1->robi->Selected = true;
                               player1->SetHero(player1->robi);
-                               break;
+                              break;
                           case Leon_Selected:
+                              if(player1->leon->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->leon->set_position_on_grid(Vector2i(i,j));
+                              player1->leon->Selected = true;
                               player1->SetHero(player1->leon);
                               break;
                           case DrMarry_Selected:
+                              if(player1->drmarry->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->drmarry->set_position_on_grid(Vector2i(i,j));
+                              player1->drmarry->Selected = true;
                               player1->SetHero(player1->drmarry);
                               break;
                           case Snipper_Selected:
+                              if(player1->snipper->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->snipper->set_position_on_grid(Vector2i(i,j));
+                              player1->snipper->Selected = true;
                               player1->SetHero(player1->snipper);
                               break;
                           case Kratos_Selected:
+                              if(player1->kratos->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->kratos->set_position_on_grid(Vector2i(i,j));
+                              player1->kratos->Selected = true;
                               player1->SetHero(player1->kratos);
                               break;
                           case Giant_Selected:
+                              if(player1->giant->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->giant->set_position_on_grid(Vector2i(i,j));
+                              player1->giant->Selected = true;
                               player1->SetHero(player1->giant);
                               break;
                            case AlphaMan_Selected:
+                              if(player1->alphaman->isSelected()) {
+                                  HeroName  = None;
+                                  break;
+                              }
                               player1->alphaman->set_position_on_grid(Vector2i(i,j));
+                              player1->alphaman->Selected = true;
                               player1->SetHero(player1->alphaman);
                               break;
                            case Professor_Selected:
+                              if(player1->professor->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->professor->set_position_on_grid(Vector2i(i,j));
+                              player1->professor->Selected = true;
                               player1->SetHero(player1->professor);
                               break;
                            case Commander_Selected:
+                              if(player1->commander->isSelected()) {
+                                  HeroName = None;
+                                  break;
+                              }
                               player1->commander->set_position_on_grid(Vector2i(i,j));
+                              player1->commander->Selected = true;
                               player1->SetHero(player1->commander);
                               break;
                           default:
@@ -291,44 +342,94 @@ void Menu::exec()
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
                            switch (HeroName) {
                            case MrsGhost_Selected:
+                               if(player2->mrsghost->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->mrsghost->set_position_on_grid(Vector2i(i,j));
+                               player2->mrsghost->Selected = true;
                                player2->SetHero(player2->mrsghost);
                                break;
                            case Robi_Selected:
+                               if(player2->robi->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->robi->set_position_on_grid(Vector2i(i,j));
+                               player2->robi->Selected = true;
                                player2->SetHero(player2->robi);
                                 break;
                            case Leon_Selected:
+                               if(player2->leon->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->leon->set_position_on_grid(Vector2i(i,j));
+                               player2->leon->Selected = true;
                                player2->SetHero(player2->leon);
                                break;
                            case DrMarry_Selected:
+                               if(player2->drmarry->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->drmarry->set_position_on_grid(Vector2i(i,j));
+                               player2->drmarry->Selected = true;
                                player2->SetHero(player2->drmarry);
                                break;
                            case Snipper_Selected:
+                               if(player2->snipper->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->snipper->set_position_on_grid(Vector2i(i,j));
+                               player2->snipper->Selected = true;
                                player2->SetHero(player2->snipper);
                                break;
                            case Kratos_Selected:
+                               if(player2->kratos->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->kratos->set_position_on_grid(Vector2i(i,j));
+                               player2->kratos->Selected = true;
                                player2->SetHero(player2->kratos);
 
                                break;
                            case Giant_Selected:
+                               if(player2->giant->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->giant->set_position_on_grid(Vector2i(i,j));
+                               player2->giant->Selected = true;
                                player2->SetHero(player2->giant);
                                break;
                            case AlphaMan_Selected:
+                               if(player2->alphaman->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->alphaman->set_position_on_grid(Vector2i(i,j));
+                               player2->alphaman->Selected = true;
                                player2->SetHero(player2->alphaman);
                                break;
                            case Professor_Selected:
+                               if(player2->professor->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->professor->set_position_on_grid(Vector2i(i,j));
+                               player2->professor->Selected = true;
                                player2->SetHero(player2->professor);
                                break;
                            case Commander_Selected:
+                               if(player2->commander->isSelected()) {
+                                   HeroName = None;
+                                   break;
+                               }
                                player2->commander->set_position_on_grid(Vector2i(i,j));
+                               player2->commander->Selected = true;
                                player2->SetHero(player2->commander);
                                break;
                            default:
@@ -400,6 +501,9 @@ void Menu::exec()
 
                        item->card->draw(Vector2f(0.23,0.23),Vector2f((counter1*350)+0,950),item->getHealth());
                        counter1++;
+                       if(item->getHealth() < 1) {
+                           item->card->getCardTextureSprite().setColor(Color::Red);
+                       }
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
@@ -421,7 +525,7 @@ void Menu::exec()
                             switch (HeroName) {
                             case MrsGhost_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "MrsGhost") {
+                                    if(item->Name == "MrsGhost" && item->getHealth() >=1 ) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -431,7 +535,7 @@ void Menu::exec()
                                 break;
                             case AlphaMan_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "AlphaMan") {
+                                    if(item->Name == "AlphaMan" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -441,7 +545,7 @@ void Menu::exec()
                                 break;
                             case Commander_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Commander") {
+                                    if(item->Name == "Commander" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -457,7 +561,7 @@ void Menu::exec()
                                 break;
                              case DrMarry_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "DrMarry") {
+                                    if(item->Name == "DrMarry" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -467,7 +571,7 @@ void Menu::exec()
                                 break;
                             case Giant_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Giant") {
+                                    if(item->Name == "Giant" && item->getHealth() >= 1) {
                                         if(player1->giant->isDonateActive()) {
 
                                             Giant* Gnt = dynamic_cast<Giant*>(item);
@@ -485,7 +589,7 @@ void Menu::exec()
                                 break;
                             case Leon_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Leon") {
+                                    if(item->Name == "Leon" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -495,7 +599,7 @@ void Menu::exec()
                                 break;
                             case Professor_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Professor") {
+                                    if(item->Name == "Professor" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -505,7 +609,7 @@ void Menu::exec()
                                 break;
                             case Robi_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Robi") {
+                                    if(item->Name == "Robi" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -515,7 +619,17 @@ void Menu::exec()
                                 break;
                             case Snipper_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Snipper") {
+                                    if(item->Name == "Snipper" && item->getHealth() >=1) {
+                                        item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Kratos_Selected:
+                                for(auto const &item : player1->getHero()) {
+                                    if(item->Name == "Kratos" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
                                         break;
@@ -529,6 +643,7 @@ void Menu::exec()
                         }
                     }
                 }
+                WhichPlayerWon =  game.checkWinningState(player1,player2,currentState);
 
                 BattleField_P2->draw();
                 window->display();
@@ -562,6 +677,9 @@ void Menu::exec()
 
                         item->card->draw(Vector2f(0.23,0.23),Vector2f((counter1*350)+0,950),item->getHealth());
                         counter1++;
+                        if(item->getHealth() < 1) {
+                            item->card->getCardTextureSprite().setColor(Color::Red);
+                        }
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
@@ -584,7 +702,7 @@ void Menu::exec()
                             switch (HeroName) {
                             case MrsGhost_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "MrsGhost") {
+                                    if(item->Name == "MrsGhost"  && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
                                         break;
@@ -594,7 +712,7 @@ void Menu::exec()
                                 break;
                             case AlphaMan_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "AlphaMan") {
+                                    if(item->Name == "AlphaMan" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
                                         break;
@@ -604,7 +722,7 @@ void Menu::exec()
                                 break;
                             case Commander_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Commander") {
+                                    if(item->Name == "Commander" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
                                         break;
@@ -620,7 +738,7 @@ void Menu::exec()
                                 break;
                             case DrMarry_Selected:
                                for(auto const &item : player2->getHero()) {
-                                   if(item->Name == "DrMarry") {
+                                   if(item->Name == "DrMarry" && item->getHealth() >= 1) {
                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                        Shutgun.play();
                                        break;
@@ -630,7 +748,7 @@ void Menu::exec()
                                break;
                             case Giant_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Giant") {
+                                    if(item->Name == "Giant" && item->getHealth() >= 1) {
                                         if(player2->giant->isDonateActive()) {
 
                                             Giant* Gnt = dynamic_cast<Giant*>(item);
@@ -648,7 +766,7 @@ void Menu::exec()
                                 break;
                             case Leon_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Leon") {
+                                    if(item->Name == "Leon" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
                                         break;
@@ -658,7 +776,7 @@ void Menu::exec()
                                 break;
                             case Professor_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Professor") {
+                                    if(item->Name == "Professor" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
                                         break;
@@ -668,7 +786,7 @@ void Menu::exec()
                                 break;
                             case Robi_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Robi") {
+                                    if(item->Name == "Robi" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
                                         break;
@@ -678,9 +796,19 @@ void Menu::exec()
                                 break;
                             case Snipper_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Snipper") {
+                                    if(item->Name == "Snipper" && item->getHealth() >= 1) {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
-
+                                        Shutgun.play();
+                                        break;
+                                    }
+                                }
+                                HeroName = None;
+                                break;
+                            case Kratos_Selected:
+                                for(auto const &item : player2->getHero()) {
+                                    if(item->Name == "Kratos" && item->getHealth() >= 1) {
+                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -696,7 +824,26 @@ void Menu::exec()
                 BattleField_P1->draw();
                 window->display();
             }
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if(currentState == WinningState) {
+
+                std::chrono::steady_clock::time_point tend = std::chrono::steady_clock::now() + std::chrono::seconds(5);
+
+                while (std::chrono::steady_clock::now() < tend)
+                {
+                    window->clear();
+                    window->draw(game.getWinBackgroundSprite());
+                    if(WhichPlayerWon == 1)
+                        window->draw(game.getPlayer1Won());
+                    else if(WhichPlayerWon == 2)
+                        window->draw(game.getPlayer2Won());
+
+                    window->display();
+                }
+                window->close();
+
+            }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }

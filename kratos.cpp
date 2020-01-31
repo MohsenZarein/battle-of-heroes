@@ -9,6 +9,7 @@ Kratos::Kratos(sf::RenderWindow* window) : kratoscard(window)
     this->window = window;
     health = 15;
     power = 3;
+    Selected = false;
     card = &kratoscard;
 }
 

@@ -9,6 +9,7 @@ MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
     this->window = window;
     Name = "MrsGhost";
     visibility = false;
+    Selected = false;
     health = 15;
     power = 3;
    // mrsghostcard = new MrsGhostCard(window);

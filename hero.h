@@ -13,6 +13,8 @@ public:
     virtual sf::Vector2i& get_position_on_grid() ;
     virtual short int& getHealth();
     virtual unsigned short int& getPower();
+    virtual bool isSelected();
+    bool Selected;
     std::string Name;
     Card * card;
 protected:

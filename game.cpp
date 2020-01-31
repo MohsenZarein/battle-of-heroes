@@ -15,6 +15,9 @@ Game::Game()
     ExpectationToStartTheGameTextue.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/427810.jpg");
     ExpToStTheGameTexSprite.setTexture(ExpectationToStartTheGameTextue);
 
+    WinBackGround.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/681006.jpg");
+    WinBackGroundSprite.setTexture(WinBackGround);
+
     ArrangeTeamsOption.setFont(GameFont);
     ArrangeTeamsOption.setString("Arrange Teames");
     ArrangeTeamsOption.setCharacterSize(70);
@@ -104,6 +107,43 @@ Game::Game()
     Attack.setCharacterSize(80);
     Attack.setFillColor(Color::White);
     Attack.setPosition(VideoMode::getDesktopMode().width/2+480,VideoMode::getDesktopMode().height/4+300);
+
+    Player1Won.setFont(GameFont);
+    Player1Won.setString("Player 1 Won!");
+    Player1Won.setCharacterSize(145);
+    Player1Won.setFillColor(Color::Black);
+    Player1Won.setPosition(VideoMode::getDesktopMode().width/3,VideoMode::getDesktopMode().height/2 -50);
+
+    Player2Won.setFont(GameFont);
+    Player2Won.setString("Player 2 Won!");
+    Player2Won.setCharacterSize(145);
+    Player2Won.setFillColor(Color::Black);
+    Player2Won.setPosition(VideoMode::getDesktopMode().width/3,VideoMode::getDesktopMode().height/2 -50);
+}
+
+int Game::checkWinningState(Player* player1, Player* player2,state& currentstate)
+{
+    short int Death_counter = 0;
+    for(auto const &item : player1->getHero()) {
+        if(item->getHealth() < 1)
+            Death_counter++;
+        if(Death_counter == 5) {
+          currentstate = WinningState;
+          return 1;
+        }
+    }
+
+    Death_counter = 0;
+
+    for(auto const &item : player2->getHero()) {
+        if(item->getHealth() < 1)
+            Death_counter++;
+        if(Death_counter == 5) {
+            currentstate = WinningState;
+            return 2;
+        }
+    }
+    return -1;
 }
 
 Sprite& Game::getGameBackgroundSprite()
@@ -146,6 +186,11 @@ Sprite &Game::getExpToStTheGameTexSprite()
     return ExpToStTheGameTexSprite;
 }
 
+Sprite &Game::getWinBackgroundSprite()
+{
+    return WinBackGroundSprite;
+}
+
 Text &Game::getBattleOfBasu()
 {
     return BattleOfBasu;
@@ -169,6 +214,16 @@ Text &Game::getP1ChooseHeroToAttack()
 Text &Game::getP2ChooseHeroToAttack()
 {
     return Player2ChooseHeroToAttack;
+}
+
+Text &Game::getPlayer1Won()
+{
+    return Player1Won;
+}
+
+Text &Game::getPlayer2Won()
+{
+    return Player2Won;
 }
 
 

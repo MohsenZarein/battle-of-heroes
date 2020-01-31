@@ -16,7 +16,7 @@ public:
     void set_position_on_grid(sf::Vector2i);
     bool& isSecondAttackDone();
     void setSecondAttack(bool);
-    CommanderCard commandercard ;
+    CommanderCard commandercard;
 private:
     bool SecondAttack;
 };

@@ -1,4 +1,5 @@
 #include "player.h"
+#include "iostream"
 
 using namespace sf;
 
@@ -23,7 +24,14 @@ Player::Player(const std::string PlayerName,RenderWindow* window)
 
 void Player::SetHero(Hero* a_Hero)
 {
-    HeroesOfPlayer.push_back(a_Hero);
+    if(this->getHero().size() < 5){
+        for(auto const &item : this->getHero()){
+            if(item->Name == a_Hero->Name)
+                return;
+        }
+        HeroesOfPlayer.push_back(a_Hero);
+    }
+    std::cout<<this->getHero().size()<<std::endl;
 }
 
 std::vector<Hero *> &Player::getHero()

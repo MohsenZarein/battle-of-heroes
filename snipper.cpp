@@ -10,6 +10,7 @@ Snipper::Snipper(sf::RenderWindow* window) : snippercard(window)
     this->window = window;
     health = 9;
     power = 4;
+    Selected = false;
     card = &snippercard;
 }
 

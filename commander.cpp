@@ -1,4 +1,4 @@
-#include "commander.h"
+ #include "commander.h"
 #include "mrsghost.h"
 using namespace sf;
 
@@ -9,6 +9,7 @@ Commander::Commander(sf::RenderWindow* window) : commandercard(window)
     health = 7;
     power = 3;
     SecondAttack = false;
+    Selected = false;
     card = &commandercard;
 }
 
@@ -25,12 +26,11 @@ void Commander::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std:
                     OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
                 for(auto item : OpponentHeroes) {
                     if(item->get_position_on_grid() == goal) {
-                        item->getHealth() -= this->getPower();
                         if(item->Name == "MrsGhost") {
                             MrsGhost* MGH = dynamic_cast<MrsGhost*>(item);
                             if(MGH->isVisible()) {
                                 OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
-                                if(item->getHealth() < 1)
+                                if(MGH->getHealth() < 1)
                                     OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
                                 else
                                     OpponentGrid->gridArr[i][j].setFillColor(Color::White);
@@ -48,6 +48,7 @@ void Commander::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std:
                         }
 
                         if(isSecondAttackDone()) {setSecondAttack(false);}
+                        item->getHealth() -= this->getPower();
 
                         if(item->Name == "Leon") {
                             this->getHealth() -= 2;

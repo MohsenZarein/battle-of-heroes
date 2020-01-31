@@ -9,6 +9,7 @@ Robi::Robi(sf::RenderWindow* window) : robicard(window)
     this->window = window;
     health = 12;
     power = 2;
+    Selected = false;
     card = &robicard;
 }
 

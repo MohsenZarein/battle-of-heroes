@@ -9,6 +9,7 @@ Professor::Professor(sf::RenderWindow* window) : professorcard(window)
     this->window = window;
     health = 11;
     power = 3;
+    Selected = false;
     card = &professorcard;
 }
 

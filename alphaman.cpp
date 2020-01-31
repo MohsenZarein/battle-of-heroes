@@ -1,6 +1,7 @@
 #include "alphaman.h"
 #include "mrsghost.h"
 #include "iostream"
+
 using namespace sf;
 
 AlphaMan::AlphaMan(sf::RenderWindow* window) : alphamancard(window)
@@ -9,6 +10,7 @@ AlphaMan::AlphaMan(sf::RenderWindow* window) : alphamancard(window)
     this->window = window;
     health = 13;
     power = 2;
+    Selected = false;
     card = &alphamancard;
 }
 
@@ -19,6 +21,7 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
     for(int i=0 ; i<OpponentGrid->getRow() ; i++) {
         for(int j=0 ; j<OpponentGrid->getCol() ; j++) {
             if(i==goal.x && j==goal.y) {
+                SpecialPower(goal,OpponentGrid,OpponentHeroes);
                 if(OpponentGrid->gridArr[i][j].getFillColor() == Color(10,10,10,200))
                     OpponentGrid->gridArr[i][j].setFillColor(Color::Yellow);
                 else if(OpponentGrid->gridArr[i][j].getFillColor() == Color::Yellow)
@@ -26,12 +29,11 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
                 for(auto item : OpponentHeroes) {
                     if(item->get_position_on_grid() == goal) {
                         item->getHealth() -= this->getPower();
-                        SpecialPower(goal,OpponentGrid,OpponentHeroes);
                         if(item->Name == "MrsGhost") {
                             MrsGhost* MGH = dynamic_cast<MrsGhost*>(item);
                             if(MGH->isVisible()) {
                                 OpponentGrid->gridArr[i][j].setTexture(&(item->card->CardTexture));
-                                if(item->getHealth() < 1)
+                                if(MGH->getHealth() < 1)
                                     OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
                                 else
                                     OpponentGrid->gridArr[i][j].setFillColor(Color::White);
@@ -84,7 +86,7 @@ unsigned short int& AlphaMan::getPower()
 }
 
 
-void AlphaMan::set_position_on_grid(sf::Vector2i position_on_grid)
+void AlphaMan::set_position_on_grid(Vector2i position_on_grid)
 {
     this->position_on_grid = position_on_grid;
 }
