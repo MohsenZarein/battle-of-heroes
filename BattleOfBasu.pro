@@ -81,3 +81,10 @@ HEADERS += \
     alphaman.h \
     professor.h \
     commander.h
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../SFML-2.5.1/lib/release/ -lsfml-audio
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../SFML-2.5.1/lib/debug/ -lsfml-audio
+else:unix: LIBS += -L$$PWD/../../SFML-2.5.1/lib/ -lsfml-audio
+
+INCLUDEPATH += $$PWD/../../SFML-2.5.1/include
+DEPENDPATH += $$PWD/../../SFML-2.5.1/include

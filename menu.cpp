@@ -8,6 +8,10 @@ Menu::Menu()
 {
     window = new RenderWindow(sf::VideoMode(1920,1080),"Battle of Basu",Style::Fullscreen);
 
+    ShutgunBuffer.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/sounds/shotgun.wav");
+    Shutgun.setBuffer(ShutgunBuffer);
+    Shutgun.setLoop(false);
+
     player1 = new Player("Player1",window);
     player2 = new Player("Player2",window);
 
@@ -235,9 +239,7 @@ void Menu::exec()
                           default:
                               break;
                           }
-                          //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
-                          //std::cout<<player1->getHero().size()<<std::endl;
-                          //std::cout<<player1->getHero().at(0)->get_position_on_grid().x<<std::endl;
+
                           gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                           HeroName = None;
                           gridPlayer1->draw();
@@ -332,11 +334,7 @@ void Menu::exec()
                            default:
                                break;
                            }
-                           //std::cout<<Player2_MrsGhost.get_position_on_grid().x<<std::endl;
-                           //std::cout<<player2->getHero().size()<<std::endl;
-                           //std::cout<<player2->getHero().back()->get_position_on_grid().x<<std::endl;
                            gridPlayer2->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
-                           std::cout<<player2->getHero().size()<<std::endl;
                            HeroName = None;
                            gridPlayer2->draw();
                            break;
@@ -425,6 +423,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "MrsGhost") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -434,6 +433,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "AlphaMan") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -443,6 +443,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "Commander") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -458,6 +459,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "DrMarry") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -474,6 +476,7 @@ void Menu::exec()
                                         }
                                         else {
                                             item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                            Shutgun.play();
                                         }
                                         break;
                                     }
@@ -484,6 +487,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "Leon") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -493,6 +497,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "Professor") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -502,6 +507,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "Robi") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -511,6 +517,7 @@ void Menu::exec()
                                 for(auto const &item : player1->getHero()) {
                                     if(item->Name == "Snipper") {
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -579,6 +586,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "MrsGhost") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -588,6 +596,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "AlphaMan") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -597,6 +606,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Commander") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -612,6 +622,7 @@ void Menu::exec()
                                for(auto const &item : player2->getHero()) {
                                    if(item->Name == "DrMarry") {
                                        item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                       Shutgun.play();
                                        break;
                                    }
                                }
@@ -628,6 +639,7 @@ void Menu::exec()
                                         }
                                         else {
                                             item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                            Shutgun.play();
                                         }
                                         break;
                                     }
@@ -638,6 +650,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Leon") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -647,6 +660,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Professor") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -656,6 +670,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Robi") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }
@@ -665,6 +680,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Snipper") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
+                                        Shutgun.play();
                                         break;
                                     }
                                 }

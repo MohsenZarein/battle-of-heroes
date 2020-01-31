@@ -71,11 +71,6 @@ void Grid::setHeroIcon(Vector2f pos, Heroes &HeroName)
             {
                 switch (HeroName) {
                 case MrsGhost_Selected:
-
-                   //MrsGhostCard* MrsGhostIcon = new MrsGhostCard(window);
-                    //Icon.getCardTextureSprite().setPosition(pos);
-                    //MrsGhostIcon->draw(Vector2f(0.2,0.2),pos);
-                    //window->draw( MrsGhostIcon->getCardTextureSprite());
                     gridArr[i][j].setTexture(&MrsGhostTexture);
                     gridArr[i][j].setFillColor(Color::White);
                     break;
