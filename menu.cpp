@@ -1,7 +1,6 @@
 #include "menu.h"
 #include <iostream>
 #include <chrono>
-#include <typeinfo>
 
 using namespace sf;
 
@@ -379,6 +378,11 @@ void Menu::exec()
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
                 window->draw(game.getNextPlayerOption());
+                window->draw(game.getP1ChooseHeroToAttack());
+                window->draw(game.Player1txt);
+                window->draw(game.Ready);
+                window->draw(game.to);
+                window->draw(game.Attack);
 
                 if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
                     game.getNextPlayerOption().setFillColor(Color::Magenta);
@@ -393,9 +397,11 @@ void Menu::exec()
                     break;
                 }
 
+                short int counter1 = 0;
                 for(auto const &item : player1->getHero()) {
 
-                       item->card->draw();
+                       item->card->draw(Vector2f(0.23,0.23),Vector2f((counter1*350)+0,950),item->getHealth());
+                       counter1++;
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
@@ -404,10 +410,10 @@ void Menu::exec()
 
                        }
                 }
-                short int counter = 0;
+                short int counter2 = 0;
                 for(auto item : player2->getHero()) {
-                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter*130)+50),item->getHealth());
-                    counter++;
+                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter2*130)+50),item->getHealth());
+                    counter2++;
                 }
 
                 for(int i=0 ; i<BattleField_P2->getRow() ; i++) {
@@ -525,6 +531,11 @@ void Menu::exec()
                 window->clear();
                 window->draw(game.getGameBackgroundSprite());
                 window->draw(game.getNextPlayerOption());
+                window->draw(game.getP2ChooseHeroToAttack());
+                window->draw(game.Player2txt);
+                window->draw(game.Ready);
+                window->draw(game.to);
+                window->draw(game.Attack);
 
                 if(game.getNextPlayerOption().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
                     game.getNextPlayerOption().setFillColor(Color::Magenta);
@@ -539,9 +550,11 @@ void Menu::exec()
                     break;
                 }
 
+                short int counter1 = 0;
                 for(auto const &item : player2->getHero()) {
 
-                       item->card->draw();
+                        item->card->draw(Vector2f(0.23,0.23),Vector2f((counter1*350)+0,950),item->getHealth());
+                        counter1++;
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
@@ -551,10 +564,10 @@ void Menu::exec()
                        }
                 }
 
-                short int counter = 0;
+                short int counter2 = 0;
                 for(auto item : player1->getHero()) {
-                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter*130)+50),item->getHealth());
-                    counter++;
+                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter2*130)+50),item->getHealth());
+                    counter2++;
                 }
 
                 for(int i=0 ; i<BattleField_P1->getRow() ; i++) {

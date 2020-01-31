@@ -54,16 +54,56 @@ Game::Game()
     Player1.setFont(GameFont);
     Player1.setString("PLAYER 1 GROUND");
     Player1.setCharacterSize(70);
-    Player1.setFillColor(Color::Black);
+    Player1.setFillColor(Color::White);
     Player1.setPosition(0,730);
 
     Player2.setFont(GameFont);
     Player2.setString("PLAYER 2 GROUND");
     Player2.setCharacterSize(70);
-    Player2.setFillColor(Color::Black);
+    Player2.setFillColor(Color::White);
     Player2.setPosition(0,730);
 
+    Player1ChooseHeroToAttack.setFont(GameFont);
+    Player1ChooseHeroToAttack.setString("PLAYER 1 / CHOOSE A HERO TO ATTACK :");
+    Player1ChooseHeroToAttack.setCharacterSize(35);
+    Player1ChooseHeroToAttack.setFillColor(Color::White);
+    Player1ChooseHeroToAttack.setPosition(0,900);
 
+    Player2ChooseHeroToAttack.setFont(GameFont);
+    Player2ChooseHeroToAttack.setString("PLAYER 2 / CHOOSE A HERO TO ATTACK :");
+    Player2ChooseHeroToAttack.setCharacterSize(35);
+    Player2ChooseHeroToAttack.setFillColor(Color::White);
+    Player2ChooseHeroToAttack.setPosition(0,900);
+
+    Player1txt.setFont(GameFont);
+    Player1txt.setString("Player 1");
+    Player1txt.setCharacterSize(80);
+    Player1txt.setFillColor(Color::White);
+    Player1txt.setPosition(VideoMode::getDesktopMode().width/2+350,VideoMode::getDesktopMode().height/4);
+
+    Player2txt.setFont(GameFont);
+    Player2txt.setString("Player 2");
+    Player2txt.setCharacterSize(80);
+    Player2txt.setFillColor(Color::White);
+    Player2txt.setPosition(VideoMode::getDesktopMode().width/2+350,VideoMode::getDesktopMode().height/4);
+
+    Ready.setFont(GameFont);
+    Ready.setString("Ready");
+    Ready.setCharacterSize(80);
+    Ready.setFillColor(Color::White);
+    Ready.setPosition(VideoMode::getDesktopMode().width/2+400,VideoMode::getDesktopMode().height/4+100);
+
+    to.setFont(GameFont);
+    to.setString("to");
+    to.setCharacterSize(80);
+    to.setFillColor(Color::White);
+    to.setPosition(VideoMode::getDesktopMode().width/2+450,VideoMode::getDesktopMode().height/4+200);
+
+    Attack.setFont(GameFont);
+    Attack.setString("Attack !");
+    Attack.setCharacterSize(80);
+    Attack.setFillColor(Color::White);
+    Attack.setPosition(VideoMode::getDesktopMode().width/2+480,VideoMode::getDesktopMode().height/4+300);
 }
 
 Sprite& Game::getGameBackgroundSprite()
@@ -120,5 +160,17 @@ Text &Game::getPlayer2Text()
 {
     return Player2;
 }
+
+Text &Game::getP1ChooseHeroToAttack()
+{
+    return Player1ChooseHeroToAttack;
+}
+
+Text &Game::getP2ChooseHeroToAttack()
+{
+    return Player2ChooseHeroToAttack;
+}
+
+
 
 

@@ -29,10 +29,10 @@ void ProfessorCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition , sho
     CardName.setFillColor(Color(124,252,0));
     CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
 
-    std::ostringstream osss;
-    osss<<"Damage : "<<health;
+    std::ostringstream oss;
+    oss<<"Damage : "<<health;
     Damage.setFont(CardFont);
-    Damage.setString(osss.str());
+    Damage.setString(oss.str());
     Damage.setCharacterSize(30);
     Damage.setFillColor(Color(124,252,0));
     Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);

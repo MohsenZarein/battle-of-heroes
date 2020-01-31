@@ -29,10 +29,10 @@ void GiantCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition , short i
     CardName.setFillColor(Color::Red);
     CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
 
-    std::ostringstream osss;
-    osss<<"Damage : "<<health;
+    std::ostringstream oss;
+    oss<<"Damage : "<<health;
     Damage.setFont(CardFont);
-    Damage.setString(osss.str());
+    Damage.setString(oss.str());
     Damage.setCharacterSize(30);
     Damage.setFillColor(Color::Red);
     Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);

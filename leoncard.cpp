@@ -30,10 +30,10 @@ void LeonCard::draw(Vector2f CardScale, Vector2f CardPosition , short int& healt
     CardName.setFillColor(Color(220,20,60));
     CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
 
-    std::ostringstream osss;
-    osss<<"Damage : "<<health;
+    std::ostringstream oss;
+    oss<<"Damage : "<<health;
     Damage.setFont(CardFont);
-    Damage.setString(osss.str());
+    Damage.setString(oss.str());
     Damage.setCharacterSize(30);
     Damage.setFillColor(Color(220,20,60));
     Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);

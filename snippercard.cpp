@@ -28,10 +28,10 @@ void SnipperCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition , short
     CardName.setFillColor(Color::Yellow);
     CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
 
-    std::ostringstream osss;
-    osss<<"Damage : "<<health;
+    std::ostringstream oss;
+    oss<<"Damage : "<<health;
     Damage.setFont(CardFont);
-    Damage.setString(osss.str());
+    Damage.setString(oss.str());
     Damage.setCharacterSize(30);
     Damage.setFillColor(Color::Yellow);
     Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);
