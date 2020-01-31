@@ -680,7 +680,7 @@ void Menu::exec()
                                 for(auto const &item : player2->getHero()) {
                                     if(item->Name == "Snipper") {
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
-                                        Shutgun.play();
+
                                         break;
                                     }
                                 }
