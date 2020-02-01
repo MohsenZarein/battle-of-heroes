@@ -27,7 +27,7 @@ void CommanderCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition , sho
     CardName.setString("Name : Commander");
     CardName.setCharacterSize(30);
     CardName.setFillColor(Color(180,0,0));
-    CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
+    CardName.setPosition(CardPosition.x + 110,CardPosition.y + 25);
 
     std::ostringstream oss;
     oss<<"Damage : "<<health;
@@ -35,10 +35,17 @@ void CommanderCard::draw(sf::Vector2f CardScale, sf::Vector2f CardPosition , sho
     Damage.setString(oss.str());
     Damage.setCharacterSize(30);
     Damage.setFillColor(Color(180,0,0));
-    Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);
+    Damage.setPosition(CardPosition.x + 110,CardPosition.y + 50);
+
+    Power.setFont(CardFont);
+    Power.setString("Power : 3");
+    Power.setCharacterSize(30);
+    Power.setFillColor(Color(180,0,0));
+    Power.setPosition(CardPosition.x + 110,CardPosition.y + 75);
 
     window->draw(CardName);
     window->draw(Damage);
+    window->draw(Power);
     window->draw(CardTextureSprite);
 }
 

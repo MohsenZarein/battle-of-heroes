@@ -24,13 +24,13 @@ Menu::Menu()
     MenuBackground.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/5048584-banner-battle-lightning-warrior.jpg");
     MenuBackgroundSprite.setTexture(MenuBackground);
 
-    MenuFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/Lokananta.ttf");
+    MenuFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/Henry McCarty.otf");
 
     option1.setFont(MenuFont);
     option1.setString("single player");
     option1.setCharacterSize(80);
     option1.setColor(Color::White);
-    option1.setPosition(1920/3,0);
+    option1.setPosition(1920/3+40,0);
 
     option2.setFont(MenuFont);
     option2.setString("multi player");
@@ -42,7 +42,7 @@ Menu::Menu()
     option3.setString("credit");
     option3.setCharacterSize(80);
     option3.setColor(Color::White);
-    option3.setPosition((1920/3)+100,200);
+    option3.setPosition((1920/3+30)+100,200);
 
     option4.setFont(MenuFont);
     option4.setString("quit");
@@ -522,6 +522,7 @@ void Menu::exec()
                     break;
                 }
 
+                //drawing player1 heroes
                 short int counter1 = 0;
                 for(auto const &item : player1->getHero()) {
 
@@ -535,7 +536,10 @@ void Menu::exec()
                            item->card->getCardTextureSprite().setColor(Color(0,191,255));
                        }
                        else{
-                           item->card->getCardTextureSprite().setColor(Color::White);
+                           if(item->getHealth() < 1)
+                              item->card->getCardTextureSprite().setColor(Color::Red);
+                           else
+                               item->card->getCardTextureSprite().setColor(Color::White);
                        }
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
@@ -544,9 +548,10 @@ void Menu::exec()
 
                        }
                 }
+                //drawing player2 heroes
                 short int counter2 = 0;
                 for(auto item : player2->getHero()) {
-                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter2*130)+50),item->getHealth());
+                    item->card->draw(Vector2f(0.23,0.23),Vector2f(750,(counter2*130)+50),item->getHealth());
                     counter2++;
                 }
 
@@ -705,6 +710,7 @@ void Menu::exec()
                     break;
                 }
 
+                //drawing player2 heroes
                 short int counter1 = 0;
                 for(auto const &item : player2->getHero()) {
 
@@ -717,7 +723,10 @@ void Menu::exec()
                             item->card->getCardTextureSprite().setColor(Color(0,191,255));
                         }
                         else{
-                            item->card->getCardTextureSprite().setColor(Color::White);
+                           if(item->getHealth() < 1)
+                              item->card->getCardTextureSprite().setColor(Color::Red);
+                           else
+                              item->card->getCardTextureSprite().setColor(Color::White);
                         }
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
@@ -728,9 +737,10 @@ void Menu::exec()
                        }
                 }
 
+                //drawing player1 heroes
                 short int counter2 = 0;
                 for(auto item : player1->getHero()) {
-                    item->card->draw(Vector2f(0.25,0.25),Vector2f(750,(counter2*130)+50),item->getHealth());
+                    item->card->draw(Vector2f(0.23,0.23),Vector2f(750,(counter2*130)+50),item->getHealth());
                     counter2++;
                 }
 

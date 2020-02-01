@@ -7,7 +7,7 @@ Game::Game()
     GameBackground.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/star-wars-ult-background-18.jpg");
     GameBackgroundSprite.setTexture(GameBackground);
 
-    GameFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/Lokananta.ttf");
+    GameFont.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/Fonts/Henry McCarty.otf");
 
     BeginingLoadPage.loadFromFile("/home/mohsen/QT projecet/BattleOfBasu/images/1920x1080-black-solid-color-background.jpg");
     BeginingLoadPageSprite.setTexture(BeginingLoadPage);
@@ -67,14 +67,14 @@ Game::Game()
     Player2.setPosition(0,730);
 
     Player1ChooseHeroToAttack.setFont(GameFont);
-    Player1ChooseHeroToAttack.setString("PLAYER 1 / CHOOSE A HERO TO ATTACK :");
-    Player1ChooseHeroToAttack.setCharacterSize(35);
+    Player1ChooseHeroToAttack.setString("PLAYER 1 - CHOOSE A HERO TO ATTACK :");
+    Player1ChooseHeroToAttack.setCharacterSize(50);
     Player1ChooseHeroToAttack.setFillColor(Color::White);
     Player1ChooseHeroToAttack.setPosition(0,900);
 
     Player2ChooseHeroToAttack.setFont(GameFont);
-    Player2ChooseHeroToAttack.setString("PLAYER 2 / CHOOSE A HERO TO ATTACK :");
-    Player2ChooseHeroToAttack.setCharacterSize(35);
+    Player2ChooseHeroToAttack.setString("PLAYER 2 - CHOOSE A HERO TO ATTACK :");
+    Player2ChooseHeroToAttack.setCharacterSize(50);
     Player2ChooseHeroToAttack.setFillColor(Color::White);
     Player2ChooseHeroToAttack.setPosition(0,900);
 
@@ -129,18 +129,17 @@ int Game::checkWinningState(Player* player1, Player* player2,state& currentstate
             Death_counter++;
         if(Death_counter == player1->getHero().size()) {
           currentstate = WinningState;
-          return 1;
+          return 2;
         }
     }
 
     Death_counter = 0;
-
     for(auto const &item : player2->getHero()) {
         if(item->getHealth() < 1)
             Death_counter++;
         if(Death_counter == player2->getHero().size()) {
             currentstate = WinningState;
-            return 2;
+            return 1;
         }
     }
     return -1;

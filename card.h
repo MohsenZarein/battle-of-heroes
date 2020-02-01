@@ -20,6 +20,7 @@ protected:
     sf::Sprite CardTextureSprite;
     sf::Text CardName;
     sf::Text Damage;
+    sf::Text Power;
     sf::Font CardFont;
 };
 

@@ -28,7 +28,7 @@ void RobiCard::draw(Vector2f CardScale,Vector2f CardPosition , short int& health
     CardName.setString("Name : Robi");
     CardName.setCharacterSize(30);
     CardName.setFillColor(Color(0,255,127));
-    CardName.setPosition(CardPosition.x + 110,CardPosition.y + 35);
+    CardName.setPosition(CardPosition.x + 115,CardPosition.y + 25);
 
     std::ostringstream oss;
     oss<<"Damage : "<<health;
@@ -36,10 +36,17 @@ void RobiCard::draw(Vector2f CardScale,Vector2f CardPosition , short int& health
     Damage.setString(oss.str());
     Damage.setCharacterSize(30);
     Damage.setFillColor(Color(0,255,127));
-    Damage.setPosition(CardPosition.x + 110,CardPosition.y + 60);
+    Damage.setPosition(CardPosition.x + 115,CardPosition.y + 50);
+
+    Power.setFont(CardFont);
+    Power.setString("Power : 2");
+    Power.setCharacterSize(30);
+    Power.setFillColor(Color(0,255,127));
+    Power.setPosition(CardPosition.x + 115,CardPosition.y + 75);
 
     window->draw(CardName);
     window->draw(Damage);
+    window->draw(Power);
     window->draw(CardTextureSprite);
 }
 
