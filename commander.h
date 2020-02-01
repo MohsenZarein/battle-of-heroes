@@ -14,11 +14,11 @@ public:
     virtual unsigned short int& getPower() override;
     virtual sf::Vector2i& get_position_on_grid() override;
     void set_position_on_grid(sf::Vector2i);
-    bool& isSecondAttackDone();
-    void setSecondAttack(bool);
+    bool& isFirstAttackDone();
+    void setFirstAttack(bool);
     CommanderCard commandercard;
 private:
-    bool SecondAttack;
+    bool FirstAttack;
 };
 
 #endif // COMMANDER_H

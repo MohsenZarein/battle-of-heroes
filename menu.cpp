@@ -189,9 +189,10 @@ void Menu::exec()
                   break;
               }
               if(event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
+
                   player1->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
               }
-
+              static short int MaximumNumberofHerosP1 = 5;
               for(int i=0 ; i<gridPlayer1->getRow() ; i++) {
                   for(int j=0 ; j<gridPlayer1->getCol() ; j++) {
                       if(gridPlayer1->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
@@ -204,6 +205,7 @@ void Menu::exec()
                               }
                               player1->mrsghost->set_position_on_grid(Vector2i(i,j));
                               player1->mrsghost->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->mrsghost);
                               break;
                           case Robi_Selected:
@@ -213,6 +215,7 @@ void Menu::exec()
                               }
                               player1->robi->set_position_on_grid(Vector2i(i,j));
                               player1->robi->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->robi);
                               break;
                           case Leon_Selected:
@@ -222,6 +225,7 @@ void Menu::exec()
                               }
                               player1->leon->set_position_on_grid(Vector2i(i,j));
                               player1->leon->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->leon);
                               break;
                           case DrMarry_Selected:
@@ -231,6 +235,7 @@ void Menu::exec()
                               }
                               player1->drmarry->set_position_on_grid(Vector2i(i,j));
                               player1->drmarry->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->drmarry);
                               break;
                           case Snipper_Selected:
@@ -240,6 +245,7 @@ void Menu::exec()
                               }
                               player1->snipper->set_position_on_grid(Vector2i(i,j));
                               player1->snipper->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->snipper);
                               break;
                           case Kratos_Selected:
@@ -249,6 +255,7 @@ void Menu::exec()
                               }
                               player1->kratos->set_position_on_grid(Vector2i(i,j));
                               player1->kratos->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->kratos);
                               break;
                           case Giant_Selected:
@@ -258,6 +265,7 @@ void Menu::exec()
                               }
                               player1->giant->set_position_on_grid(Vector2i(i,j));
                               player1->giant->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->giant);
                               break;
                            case AlphaMan_Selected:
@@ -267,6 +275,7 @@ void Menu::exec()
                               }
                               player1->alphaman->set_position_on_grid(Vector2i(i,j));
                               player1->alphaman->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->alphaman);
                               break;
                            case Professor_Selected:
@@ -276,6 +285,7 @@ void Menu::exec()
                               }
                               player1->professor->set_position_on_grid(Vector2i(i,j));
                               player1->professor->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->professor);
                               break;
                            case Commander_Selected:
@@ -285,13 +295,16 @@ void Menu::exec()
                               }
                               player1->commander->set_position_on_grid(Vector2i(i,j));
                               player1->commander->Selected = true;
+                              MaximumNumberofHerosP1--;
                               player1->SetHero(player1->commander);
                               break;
                           default:
                               break;
                           }
-
-                          gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                          if(MaximumNumberofHerosP1 >= 0) {
+                              gridPlayer1->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                              HeroName = None;
+                          }
                           HeroName = None;
                           gridPlayer1->draw();
                           break;
@@ -335,7 +348,7 @@ void Menu::exec()
 
                      player2->WhichHeroIsSelected(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
                  }
-
+               static short int MaximumNumberofHerosP2 = 5;
                for(int i=0 ; i<gridPlayer2->getRow() ; i++) {
                    for(int j=0 ; j<gridPlayer2->getCol() ; j++) {
                        if(gridPlayer2->gridArr[i][j].getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
@@ -348,6 +361,7 @@ void Menu::exec()
                                }
                                player2->mrsghost->set_position_on_grid(Vector2i(i,j));
                                player2->mrsghost->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->mrsghost);
                                break;
                            case Robi_Selected:
@@ -357,6 +371,7 @@ void Menu::exec()
                                }
                                player2->robi->set_position_on_grid(Vector2i(i,j));
                                player2->robi->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->robi);
                                 break;
                            case Leon_Selected:
@@ -366,6 +381,7 @@ void Menu::exec()
                                }
                                player2->leon->set_position_on_grid(Vector2i(i,j));
                                player2->leon->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->leon);
                                break;
                            case DrMarry_Selected:
@@ -375,6 +391,7 @@ void Menu::exec()
                                }
                                player2->drmarry->set_position_on_grid(Vector2i(i,j));
                                player2->drmarry->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->drmarry);
                                break;
                            case Snipper_Selected:
@@ -384,6 +401,7 @@ void Menu::exec()
                                }
                                player2->snipper->set_position_on_grid(Vector2i(i,j));
                                player2->snipper->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->snipper);
                                break;
                            case Kratos_Selected:
@@ -393,6 +411,7 @@ void Menu::exec()
                                }
                                player2->kratos->set_position_on_grid(Vector2i(i,j));
                                player2->kratos->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->kratos);
 
                                break;
@@ -403,6 +422,7 @@ void Menu::exec()
                                }
                                player2->giant->set_position_on_grid(Vector2i(i,j));
                                player2->giant->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->giant);
                                break;
                            case AlphaMan_Selected:
@@ -412,6 +432,7 @@ void Menu::exec()
                                }
                                player2->alphaman->set_position_on_grid(Vector2i(i,j));
                                player2->alphaman->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->alphaman);
                                break;
                            case Professor_Selected:
@@ -421,6 +442,7 @@ void Menu::exec()
                                }
                                player2->professor->set_position_on_grid(Vector2i(i,j));
                                player2->professor->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->professor);
                                break;
                            case Commander_Selected:
@@ -430,12 +452,16 @@ void Menu::exec()
                                }
                                player2->commander->set_position_on_grid(Vector2i(i,j));
                                player2->commander->Selected = true;
+                               MaximumNumberofHerosP2--;
                                player2->SetHero(player2->commander);
                                break;
                            default:
                                break;
                            }
-                           gridPlayer2->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                           if(MaximumNumberofHerosP2 >= 0) {
+                               gridPlayer2->setHeroIcon(static_cast<Vector2f>(Mouse::getPosition()),HeroName);
+                               HeroName = None;
+                           }
                            HeroName = None;
                            gridPlayer2->draw();
                            break;
@@ -505,6 +531,12 @@ void Menu::exec()
                            item->card->getCardTextureSprite().setColor(Color::Red);
                        }
 
+                       if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+                           item->card->getCardTextureSprite().setColor(Color(0,191,255));
+                       }
+                       else{
+                           item->card->getCardTextureSprite().setColor(Color::White);
+                       }
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
 
@@ -545,18 +577,19 @@ void Menu::exec()
                                 break;
                             case Commander_Selected:
                                 for(auto const &item : player1->getHero()) {
-                                    if(item->Name == "Commander" && item->getHealth() >= 1) {
+                                    if(item->Name == "Commander" && item->getHealth() >= 1 ) {
+                                        Commander* cmd = dynamic_cast<Commander*>(item);
                                         item->Attack(Vector2i(i,j),BattleField_P2,BattleField_P1,player2->getHero());
                                         Shutgun.play();
+                                        if(cmd->isFirstAttackDone()) {
+                                            HeroName = None;
+                                            cmd->setFirstAttack(false);
+                                        }
+                                        else {
+                                            cmd->setFirstAttack(true);
+                                        }
                                         break;
                                     }
-                                }
-                                if(player1->commander->isSecondAttackDone()) {
-                                    HeroName = None;
-                                    player1->commander->setSecondAttack(false);
-                                }
-                                else{
-                                    player1->commander->setSecondAttack(true);
                                 }
                                 break;
                              case DrMarry_Selected:
@@ -680,6 +713,12 @@ void Menu::exec()
                         if(item->getHealth() < 1) {
                             item->card->getCardTextureSprite().setColor(Color::Red);
                         }
+                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition()))) {
+                            item->card->getCardTextureSprite().setColor(Color(0,191,255));
+                        }
+                        else{
+                            item->card->getCardTextureSprite().setColor(Color::White);
+                        }
 
                        if(item->card->getCardTextureSprite().getGlobalBounds().contains(static_cast<Vector2f>(Mouse::getPosition())) &&
                                event.key.code == Mouse::isButtonPressed(Mouse::Left)) {
@@ -722,18 +761,19 @@ void Menu::exec()
                                 break;
                             case Commander_Selected:
                                 for(auto const &item : player2->getHero()) {
-                                    if(item->Name == "Commander" && item->getHealth() >= 1) {
+                                    if(item->Name == "Commander" && item->getHealth() >= 1 ) {
+                                        Commander* cmd = dynamic_cast<Commander*>(item);
                                         item->Attack(Vector2i(i,j),BattleField_P1,BattleField_P2,player1->getHero());
                                         Shutgun.play();
+                                        if(cmd->isFirstAttackDone()) {
+                                            HeroName = None;
+                                            cmd->setFirstAttack(false);
+                                        }
+                                        else {
+                                            cmd->setFirstAttack(true);
+                                        }
                                         break;
                                     }
-                                }
-                                if(player2->commander->isSecondAttackDone()) {
-                                    HeroName = None;
-                                    player2->commander->setSecondAttack(false);
-                                }
-                                else{
-                                    player2->commander->setSecondAttack(true);
                                 }
                                 break;
                             case DrMarry_Selected:

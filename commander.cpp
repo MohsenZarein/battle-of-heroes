@@ -8,7 +8,7 @@ Commander::Commander(sf::RenderWindow* window) : commandercard(window)
     this->window = window;
     health = 7;
     power = 3;
-    SecondAttack = false;
+    FirstAttack = false;
     Selected = false;
     card = &commandercard;
 }
@@ -26,6 +26,7 @@ void Commander::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std:
                     OpponentGrid->gridArr[i][j].setFillColor(Color::Red);
                 for(auto item : OpponentHeroes) {
                     if(item->get_position_on_grid() == goal) {
+                        item->getHealth() -= this->getPower();
                         if(item->Name == "MrsGhost") {
                             MrsGhost* MGH = dynamic_cast<MrsGhost*>(item);
                             if(MGH->isVisible()) {
@@ -47,11 +48,21 @@ void Commander::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std:
                                OpponentGrid->gridArr[i][j].setFillColor(Color::White);
                         }
 
-                        if(isSecondAttackDone()) {setSecondAttack(false);}
-                        item->getHealth() -= this->getPower();
-
                         if(item->Name == "Leon") {
                             this->getHealth() -= 2;
+                            if(this->getHealth() < 1) {
+                                for(int k=0 ; k<ThisGrid->getRow() ; k++) {
+                                    for(int m=0 ; m<ThisGrid->getCol() ; m++) {
+                                        if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
+                                            ThisGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                            if(this->getHealth() < 1)
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::Red);
+                                            else
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::White);
+                                        }
+                                    }
+                                }
+                            }
                         }
                         else if(item->Name == "Professor") {
                             for(int k=0 ; k<ThisGrid->getRow() ; k++) {
@@ -91,14 +102,14 @@ void Commander::set_position_on_grid(sf::Vector2i positio_on_grid)
     this->position_on_grid = positio_on_grid;
 }
 
-bool& Commander::isSecondAttackDone()
+bool& Commander::isFirstAttackDone()
 {
-    return SecondAttack;
+    return FirstAttack;
 }
 
-void Commander::setSecondAttack(bool SecondAttack)
+void Commander::setFirstAttack(bool FirstAttack)
 {
-    this->SecondAttack = SecondAttack;
+    this->FirstAttack = FirstAttack;
 }
 
 sf::Vector2i& Commander::get_position_on_grid()

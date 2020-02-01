@@ -127,7 +127,7 @@ int Game::checkWinningState(Player* player1, Player* player2,state& currentstate
     for(auto const &item : player1->getHero()) {
         if(item->getHealth() < 1)
             Death_counter++;
-        if(Death_counter == 5) {
+        if(Death_counter == player1->getHero().size()) {
           currentstate = WinningState;
           return 1;
         }
@@ -138,7 +138,7 @@ int Game::checkWinningState(Player* player1, Player* player2,state& currentstate
     for(auto const &item : player2->getHero()) {
         if(item->getHealth() < 1)
             Death_counter++;
-        if(Death_counter == 5) {
+        if(Death_counter == player2->getHero().size()) {
             currentstate = WinningState;
             return 2;
         }

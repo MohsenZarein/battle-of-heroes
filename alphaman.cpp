@@ -52,6 +52,19 @@ void AlphaMan::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::
 
                         if(item->Name == "Leon") {
                             this->getHealth() -= 2;
+                            if(this->getHealth() < 1) {
+                                for(int k=0 ; k<ThisGrid->getRow() ; k++) {
+                                    for(int m=0 ; m<ThisGrid->getCol() ; m++) {
+                                        if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
+                                            ThisGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                            if(this->getHealth() < 1)
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::Red);
+                                            else
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::White);
+                                        }
+                                    }
+                                }
+                            }
                         }
                         else if(item->Name == "Professor") {
                             for(int k=0 ; k<ThisGrid->getRow() ; k++) {
@@ -97,14 +110,26 @@ void AlphaMan::SpecialPower(Vector2i goal, Grid* OpponentGrid, std::vector<Hero 
         for(int j=0 ; j<OpponentGrid->getCol() ; j++) {
             if(i==goal.x && j==goal.y) {
                 for(auto item : OpponentHeroes) {
-                    if(item->get_position_on_grid().x == i && item->get_position_on_grid().y == j-1)
+                    if(item->get_position_on_grid().x == i && item->get_position_on_grid().y == j-1) {
                         item->getHealth() --;
-                    if(item->get_position_on_grid().x == i-1 && item->get_position_on_grid().y == j)
+                        if(item->getHealth() < 1)
+                            OpponentGrid->gridArr[i][j-1].setFillColor(Color::Red);
+                    }
+                    if(item->get_position_on_grid().x == i-1 && item->get_position_on_grid().y == j) {
                         item->getHealth() --;
-                    if(item->get_position_on_grid().x == i+1 && item->get_position_on_grid().y == j)
+                        if(item->getHealth() < 1)
+                            OpponentGrid->gridArr[i-1][j].setFillColor(Color::Red);
+                    }
+                    if(item->get_position_on_grid().x == i+1 && item->get_position_on_grid().y == j) {
                         item->getHealth() --;
-                    if(item->get_position_on_grid().x == i && item->get_position_on_grid().y == j+1)
+                        if(item->getHealth() < 1)
+                            OpponentGrid->gridArr[i+1][j].setFillColor(Color::Red);
+                    }
+                    if(item->get_position_on_grid().x == i && item->get_position_on_grid().y == j+1) {
                         item->getHealth() --;
+                        if(item->getHealth() < 1)
+                            OpponentGrid->gridArr[i][j+1].setFillColor(Color::Red);
+                    }
                 }
                 return;
             }

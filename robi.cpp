@@ -23,6 +23,7 @@ void Robi::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::vect
     for(int i=0 ; i<OpponentGrid->getRow() ; i++) {
         for(int j=0 ; j<OpponentGrid->getCol() ; j++) {
             if(i==goal.x && j==goal.y) {
+                SpecialPower(goal,OpponentGrid,OpponentHeroes);
                 if(OpponentGrid->gridArr[i][j].getFillColor() == Color(10,10,10,200))
                     OpponentGrid->gridArr[i][j].setFillColor(Color::Yellow);
                 else if(OpponentGrid->gridArr[i][j].getFillColor() == Color::Yellow)
@@ -30,7 +31,6 @@ void Robi::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::vect
                 for(auto item : OpponentHeroes) {
                     if(item->get_position_on_grid() == goal) {
                         item->getHealth() -= this->getPower();
-                        SpecialPower(goal,OpponentGrid,OpponentHeroes);
                         if(item->Name == "MrsGhost") {
                             MrsGhost* MGH = dynamic_cast<MrsGhost*>(item);
                             if(MGH->isVisible()) {
@@ -54,6 +54,19 @@ void Robi::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::vect
 
                         if(item->Name == "Leon") {
                             this->getHealth() -= 2;
+                            if(this->getHealth() < 1) {
+                                for(int k=0 ; k<ThisGrid->getRow() ; k++) {
+                                    for(int m=0 ; m<ThisGrid->getCol() ; m++) {
+                                        if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
+                                            ThisGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                            if(this->getHealth() < 1)
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::Red);
+                                            else
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::White);
+                                        }
+                                    }
+                                }
+                            }
                         }
                         else if(item->Name == "Professor") {
                             for(int k=0 ; k<ThisGrid->getRow() ; k++) {

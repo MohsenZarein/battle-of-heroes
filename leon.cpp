@@ -52,8 +52,20 @@ void Leon::Attack(Vector2i goal , Grid* OpponentGrid , Grid* ThisGrid, std::vect
                         }
 
                         if(item->Name == "Leon") {
-
                             this->getHealth() -= 2;
+                            if(this->getHealth() < 1) {
+                                for(int k=0 ; k<ThisGrid->getRow() ; k++) {
+                                    for(int m=0 ; m<ThisGrid->getCol() ; m++) {
+                                        if(k==this->get_position_on_grid().x && m==this->get_position_on_grid().y) {
+                                            ThisGrid->gridArr[k][m].setTexture(&(this->card->CardTexture));
+                                            if(this->getHealth() < 1)
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::Red);
+                                            else
+                                                ThisGrid->gridArr[k][m].setFillColor(Color::White);
+                                        }
+                                    }
+                                }
+                            }
                         }
                         else if(item->Name == "Professor") {
                             for(int k=0 ; k<ThisGrid->getRow() ; k++) {
