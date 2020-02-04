@@ -1,6 +1,6 @@
 #include "drmarry.h"
 #include "mrsghost.h"
-#include <iostream>
+
 using namespace sf;
 
 DrMarry::DrMarry(sf::RenderWindow* window) : drmarrycard(window)
@@ -10,6 +10,7 @@ DrMarry::DrMarry(sf::RenderWindow* window) : drmarrycard(window)
     health = 8;
     power = 2;
     Selected = false;
+    AttackPermision = true;
     card = &drmarrycard;
 }
 

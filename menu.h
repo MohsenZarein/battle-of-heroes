@@ -9,7 +9,7 @@
 #include "game.h"
 #include "grid.h"
 #include "player.h"
-#include "mrsghostcard.h"
+/*#include "mrsghostcard.h"
 #include "mrsghost.h"
 #include "robicard.h"
 #include "robi.h"
@@ -29,6 +29,7 @@
 #include "professor.h"
 #include "commandercard.h"
 #include "commander.h"
+*/
 
 class Menu
 {
@@ -38,7 +39,6 @@ public:
     void exec();
     sf::SoundBuffer ShutgunBuffer;
     sf::Sound Shutgun;
-    //sf::Music GameMainMusic;
 private:
     sf::Texture MenuBackground;
     sf::Sprite MenuBackgroundSprite;

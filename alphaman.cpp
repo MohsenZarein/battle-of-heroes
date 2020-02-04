@@ -1,6 +1,5 @@
 #include "alphaman.h"
 #include "mrsghost.h"
-#include "iostream"
 
 using namespace sf;
 
@@ -11,6 +10,7 @@ AlphaMan::AlphaMan(sf::RenderWindow* window) : alphamancard(window)
     health = 13;
     power = 2;
     Selected = false;
+    AttackPermision = true;
     card = &alphamancard;
 }
 

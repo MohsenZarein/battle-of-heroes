@@ -10,6 +10,7 @@ Robi::Robi(sf::RenderWindow* window) : robicard(window)
     health = 12;
     power = 2;
     Selected = false;
+    AttackPermision = true;
     card = &robicard;
 }
 

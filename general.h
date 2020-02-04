@@ -7,4 +7,6 @@ enum state{Begin,MENU,SinglePalyer,Multipalyer,Player1_ArrangeTeam,Player2_Arran
 enum Heroes{MrsGhost_Selected,Robi_Selected,Leon_Selected,DrMarry_Selected,Snipper_Selected,Kratos_Selected,
            Giant_Selected,AlphaMan_Selected,Professor_Selected,Commander_Selected,None};
 
+enum TurnOfAttack{player1Turn,player2Turn};
+
 #endif // GENERAL_H

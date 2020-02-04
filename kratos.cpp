@@ -10,6 +10,7 @@ Kratos::Kratos(sf::RenderWindow* window) : kratoscard(window)
     health = 15;
     power = 3;
     Selected = false;
+    AttackPermision = true;
     card = &kratoscard;
 }
 

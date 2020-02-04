@@ -10,6 +10,7 @@ Leon::Leon(sf::RenderWindow* window) : leoncard(window)
     health = 10;
     power = 3;
     Selected = false;
+    AttackPermision = true;
     card = &leoncard;
 }
 

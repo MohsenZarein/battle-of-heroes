@@ -1,0 +1,204 @@
+commit 9706a566aa9f9c1b36b46eb1d4c870e5dd460607 (HEAD -> master, origin/master)
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Sat Feb 1 20:44:01 2020 +0330
+
+    power text added to all hero cards
+
+commit 01e35edaaae03287e279fa590c4805cac0e9b972
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Sat Feb 1 15:32:15 2020 +0330
+
+    graphic side of the logic of not being able to choose repetitive and more than 5 heroes added to game
+
+commit 4eba9a7806561de5ab153ead9a9ec048d3c25434
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Sat Feb 1 01:42:08 2020 +0330
+
+    a logic of not being able to choose repetitive and more than 5 heroes added
+
+:...skipping...
+commit 9706a566aa9f9c1b36b46eb1d4c870e5dd460607 (HEAD -> master, origin/master)
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Sat Feb 1 20:44:01 2020 +0330
+
+    power text added to all hero cards
+
+commit 01e35edaaae03287e279fa590c4805cac0e9b972
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Sat Feb 1 15:32:15 2020 +0330
+
+    graphic side of the logic of not being able to choose repetitive and more than 5 heroes added to game
+
+commit 4eba9a7806561de5ab153ead9a9ec048d3c25434
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Sat Feb 1 01:42:08 2020 +0330
+
+    a logic of not being able to choose repetitive and more than 5 heroes added
+
+commit a142a409ae618687319ff864290be9571cca647f
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Fri Jan 31 15:42:30 2020 +0330
+
+    Kratos Attack function completed
+
+commit 1bc4f7e5934edf461b0fd23ad036020eabbe7e5e
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Fri Jan 31 15:30:37 2020 +0330
+
+    sound effect added to attack condition
+
+commit 40816d7675cbafff32bcf134b26ca195079ab1b4
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Fri Jan 31 12:30:22 2020 +0330
+
+    some texts has been added to game and drawing both player's heroes on screen
+
+commit d5002005e694b66e35fd9e21976b0c47f3535bdb
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Fri Jan 31 02:47:04 2020 +0330
+
+    drawing Damage of players' heroes on battle field is done
+
+commit 171e1cb588ec027fb595501b7a6a66ee3c791117
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Thu Jan 30 21:57:28 2020 +0330
+
+    Attack function of snipper completed and death property on all attack funcs
+
+commit 6be5682e0a7b3a72bb366c40fa7da6fb3d88a0dc
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Thu Jan 30 14:19:59 2020 +0330
+
+    Robi Attack function completed
+
+commit 7f55b8208ed9c4f33f7e87030157f043e2fdec1b
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Thu Jan 30 01:08:19 2020 +0330
+
+    Attack functions of giant and leon and professor completed
+
+commit 24dc9df9747427d8d68006e97a2abfa3933fde47
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 20:42:20 2020 +0330
+
+    Dr.Marry's Attack function completed
+
+commit 6ee1ef0eb319f9cfd1876da2bfd8ffa3589477cc
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 20:26:15 2020 +0330
+
+    Commander's Attack Function completed
+
+commit c483c61c044583f8ee602d602fce58558dcdfdc9
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 18:44:11 2020 +0330
+
+    Alphaman's Attack function completed
+
+commit 6044ab9598ca92e2bafbbcae19c01d9926add0e5
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 15:29:12 2020 +0330
+
+    MrsGhost's Attack function optimized
+
+commit f9980500217a2cd9761cbb37a809a05dbc003245
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 14:17:49 2020 +0330
+
+    MrsGhost's Attack function optimized
+
+commit 3de724bb298f1362ecd4d88a46bf89887560397e
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 12:56:53 2020 +0330
+
+    getHealth and getPower functions are added to each hero class
+
+commit c7e59346ba4a6ef482ea5abcc0eb567c9d2ad8a1
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Wed Jan 29 01:34:55 2020 +0330
+
+    Mrs.Ghost's Attack function completed
+
+commit f62361da6fb5f969d70c542ee83c026b256e2f3f
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 19:11:25 2020 +0330
+
+    changed player and menu classes'basement and added some more features
+
+commit 2afa6fee049b9d5b549d592d00136c0129b3f378
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 11:43:20 2020 +0330
+
+    some changes in heroes' card classes
+
+commit ac81a4d7c75c47e2ccaa3c06d9b9e5ecaabcdd12
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 02:10:08 2020 +0330
+
+    fuck
+
+commit 630892c4afa5352279cc209c8e570f305e3e5074
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 01:48:19 2020 +0330
+
+    Professor class optimized
+
+commit 7281077feb0772a43faa6472ec80530241b815a5
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 01:39:55 2020 +0330
+
+    Snipper class optimized
+
+commit b1a63ba7061910e0e829f2f8d463d299dc7efdfd
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 01:30:39 2020 +0330
+
+    Leon class optimized
+
+commit 08795c0359a849ac72a1f8d6b0408eecc692140d
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Tue Jan 28 01:18:03 2020 +0330
+
+    Kratos class optimized
+
+commit 699a836ae26e220d8bc8e56d16727a512d841d99
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 23:41:38 2020 +0330
+
+    Giant class optimized
+
+commit ac227acd072b8063f8e06436136380bf2845258e
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 22:43:30 2020 +0330
+
+    commander class optimized
+
+commit 2269913f8e95ca65086fcceadb1c04c10f36d568
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 22:24:00 2020 +0330
+
+    Alpha man class optimized
+
+commit 919650d84e47937feda62f7975d4682ec1d43991
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 22:15:43 2020 +0330
+
+    Mrs.Ghost and Robi classes optimized
+
+commit 7451fe7f006ec9bb26d627e59e0ac55437b7e7b6
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 15:14:56 2020 +0330
+
+    drawing player1's heros on battle field
+
+commit 916bf33fe74b12491b4ada8e964863c32d30c7d5
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 12:24:24 2020 +0330
+
+    getHero Function is written
+
+commit 03a882e265080113b321e15752d9ef4c293498a1
+Author: mohsen <mohsenzarein1379@gmail.com>
+Date:   Mon Jan 27 01:32:36 2020 +0330
+
+    my last git repository encountered with problem and all the commits got deleted , so i made a new repository and start to commit from now

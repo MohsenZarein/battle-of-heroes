@@ -52,7 +52,7 @@ Game::Game()
     BattleOfBasu.setString("BATTLE OF HEROES");
     BattleOfBasu.setCharacterSize(120);
     BattleOfBasu.setColor(Color::Red);
-    BattleOfBasu.setPosition(VideoMode::getDesktopMode().width/4 -100,VideoMode::getDesktopMode().height/2 -50);
+    BattleOfBasu.setPosition(VideoMode::getDesktopMode().width/4 ,VideoMode::getDesktopMode().height/2 -50);
 
     Player1.setFont(GameFont);
     Player1.setString("PLAYER 1 GROUND");

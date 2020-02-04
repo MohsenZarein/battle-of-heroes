@@ -10,6 +10,7 @@ Professor::Professor(sf::RenderWindow* window) : professorcard(window)
     health = 11;
     power = 3;
     Selected = false;
+    AttackPermision = true;
     card = &professorcard;
 }
 

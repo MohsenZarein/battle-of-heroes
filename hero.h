@@ -14,7 +14,9 @@ public:
     virtual short int& getHealth();
     virtual unsigned short int& getPower();
     virtual bool isSelected();
+    virtual bool getAttackPermision();
     bool Selected;
+    bool AttackPermision;
     std::string Name;
     Card * card;
 protected:

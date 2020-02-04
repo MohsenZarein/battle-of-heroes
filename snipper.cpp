@@ -1,6 +1,5 @@
 #include "snipper.h"
 #include "mrsghost.h"
-#include <iostream>
 
 using namespace sf;
 
@@ -11,6 +10,7 @@ Snipper::Snipper(sf::RenderWindow* window) : snippercard(window)
     health = 9;
     power = 4;
     Selected = false;
+    AttackPermision = true;
     card = &snippercard;
 }
 

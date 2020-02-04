@@ -1,5 +1,4 @@
 #include "mrsghost.h"
-#include <iostream>
 
 using namespace sf;
 
@@ -10,6 +9,7 @@ MrsGhost::MrsGhost(sf::RenderWindow* window) : mrsghostcard(window)
     Name = "MrsGhost";
     visibility = false;
     Selected = false;
+    AttackPermision = true;
     health = 15;
     power = 3;
    // mrsghostcard = new MrsGhostCard(window);

@@ -1,7 +1,6 @@
 #include "giant.h"
 #include "mrsghost.h"
 #include <ctime>
-#include <iostream>
 
 using namespace sf;
 
@@ -13,6 +12,7 @@ Giant::Giant(sf::RenderWindow* window) : giantcard(window)
     power = 4;
     DonateCondition = false;
     Selected = false;
+    AttackPermision = true;
     card = &giantcard;
 }
 

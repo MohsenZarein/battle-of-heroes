@@ -1,5 +1,4 @@
 #include "player.h"
-#include "iostream"
 
 using namespace sf;
 
@@ -31,7 +30,6 @@ void Player::SetHero(Hero* a_Hero)
         }
         HeroesOfPlayer.push_back(a_Hero);
     }
-    std::cout<<this->getHero().size()<<std::endl;
 }
 
 std::vector<Hero *> &Player::getHero()
@@ -130,6 +128,23 @@ void Player::WhichHeroIsSelected(sf::Vector2f pos,Heroes &HeroName)
         if(commander->commandercard.getCardTextureSprite().getGlobalBounds().contains(pos)) {
 
             HeroName = Commander_Selected;
+        }
+    }
+}
+
+void Player::updatePlayerAttackPermisions()
+{
+    short int counter = 0;
+    for(auto &item : HeroesOfPlayer) {
+        if(item->getHealth() < 1)
+            item->AttackPermision = false;
+        if(item->getAttackPermision() == false)
+            counter++;
+        if(counter == HeroesOfPlayer.size()) {
+            for(auto &item2 : HeroesOfPlayer) {
+                item2->AttackPermision = true;
+            }
+            return;
         }
     }
 }

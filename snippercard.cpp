@@ -1,4 +1,5 @@
 #include "snippercard.h"
+
 using namespace sf;
 
 SnipperCard::SnipperCard(sf::RenderWindow * window)

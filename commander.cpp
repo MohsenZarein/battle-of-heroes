@@ -1,5 +1,6 @@
  #include "commander.h"
 #include "mrsghost.h"
+
 using namespace sf;
 
 Commander::Commander(sf::RenderWindow* window) : commandercard(window)
@@ -10,6 +11,7 @@ Commander::Commander(sf::RenderWindow* window) : commandercard(window)
     power = 3;
     FirstAttack = false;
     Selected = false;
+    AttackPermision = true;
     card = &commandercard;
 }
 

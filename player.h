@@ -36,6 +36,7 @@ public:
     void SetHero(Hero*);
     std::vector<Hero*>& getHero();
     void WhichHeroIsSelected(sf::Vector2f,Heroes&);
+    void updatePlayerAttackPermisions();
 
     std::string PlayerName;
 
